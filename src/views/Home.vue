@@ -62,7 +62,7 @@
       >
         <swiper-slide class="h-full w-full flex justify-center items-center">
           <div class="flex flex-col h-full w-full">
-            <TimeAttack :timeAttackLists="timeAttackLists"></TimeAttack>
+            <TimeAttackCarousel></TimeAttackCarousel>
             <div class="w-full h-4 bg-beGray"></div>
           </div>
         </swiper-slide>
@@ -92,8 +92,7 @@
 <script>
 import Header from "../components/global/Header.vue";
 import Footer from "../components/global/Footer.vue";
-import TimeAttack from "../components/home/globalHome/TimeAttack.vue";
-import api from "../api/api";
+import TimeAttackCarousel from "../components/home/globalHome/TimeAttackCarousel.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 
@@ -101,7 +100,7 @@ export default {
   components: {
     Header: Header,
     Footer: Footer,
-    TimeAttack: TimeAttack,
+    TimeAttackCarousel: TimeAttackCarousel,
     Swiper,
     SwiperSlide,
   },
@@ -109,7 +108,6 @@ export default {
     return {
       swipeRef: null,
       categoryState: 0,
-      timeAttackLists: [],
     };
   },
   methods: {
@@ -123,10 +121,6 @@ export default {
       this.swipeRef?.slideTo(index, 200);
       this.categoryState = index;
     },
-  },
-  async created() {
-    const { data } = await api.get("/recommendation-timeattack");
-    this.timeAttackLists = data.result;
   },
 };
 </script>
