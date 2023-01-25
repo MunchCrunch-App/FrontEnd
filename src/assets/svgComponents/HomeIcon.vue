@@ -34,10 +34,6 @@ export default {
       type: String,
       default: "#000",
     },
-    width: {
-      type: Number,
-      default: "50",
-    },
   },
 };
 </script>

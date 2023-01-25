@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import HomeIcon from "../../assets/svgComponents/HeartIcon.vue";
+import HomeIcon from "../../assets/svgComponents/HomeIcon.vue";
 import ListIcon from "../../assets/svgComponents/ListIcon.vue";
 import HeartIcon from "../../assets/svgComponents/HeartIcon.vue";
 import MyPageIcon from "../../assets/svgComponents/MyPageIcon.vue";
