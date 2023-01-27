@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        pretend: ["Pretendard-Regular"],
+        pretendard: ["Pretendard"],
       },
       colors: {
         beRed: "#E50014",
