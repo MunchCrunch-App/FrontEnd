@@ -1,31 +1,31 @@
 <template>
   <svg
-    version="1.0"
     xmlns="http://www.w3.org/2000/svg"
-    width="32"
-    height="32"
-    viewBox="0 0 512.000000 512.000000"
-    preserveAspectRatio="xMidYMid meet"
+    width="23.649"
+    height="21.1"
+    viewBox="0 0 23.649 21.1"
   >
-    <g
-      transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-      :fill="color"
-      stroke="none"
-    >
+    <g data-name="그룹 401">
       <path
-        d="M940 3892 c-101 -50 -105 -183 -8 -242 33 -20 54 -20 1629 -20 l1596
-0 34 23 c93 62 87 189 -12 239 -32 17 -130 18 -1619 18 -1489 0 -1587 -1
--1620 -18z"
+        data-name="선 83"
+        style="fill: none; stroke-linecap: round; stroke-width: 2px"
+        :stroke="color"
+        d="M0 0h21.649"
+        transform="translate(1 1)"
       />
       <path
-        d="M932 2680 c-97 -59 -93 -192 8 -242 33 -17 131 -18 1620 -18 1489 0
-1587 1 1619 18 101 51 106 183 9 242 -33 20 -54 20 -1628 20 -1574 0 -1595 0
--1628 -20z"
+        data-name="선 84"
+        transform="translate(1 10.55)"
+        style="fill: none; stroke-linecap: round; stroke-width: 2px"
+        :stroke="color"
+        d="M0 0h21.649"
       />
       <path
-        d="M932 1470 c-97 -59 -93 -192 8 -242 33 -17 131 -18 1620 -18 1489 0
-1587 1 1619 18 101 51 106 183 9 242 -33 20 -54 20 -1628 20 -1574 0 -1595 0
--1628 -20z"
+        data-name="선 85"
+        transform="translate(1 20.1)"
+        style="fill: none; stroke-linecap: round; stroke-width: 2px"
+        :stroke="color"
+        d="M0 0h21.649"
       />
     </g>
   </svg>
@@ -36,8 +36,10 @@ export default {
   props: {
     color: {
       type: String,
-      default: "#000",
+      default: '#000',
     },
   },
 };
 </script>
+
+<style></style>

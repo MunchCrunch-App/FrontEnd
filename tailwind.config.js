@@ -4,13 +4,17 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        pretend: ["Pretendard-Regular"],
+        pretendard: ["Pretendard"],
       },
       colors: {
         beRed: "#E50014",
-        beRed2: "#EF6672",
+        beRed2: "#f75765",
         beGray: "#F5F5F5",
+        beGray2: "#848484",
         beGreen: "#E1FC89",
+        bePink: "#fad0ff ",
+        bePink2: "#f194fc",
+        beBlack: "#2c2c2c",
       },
     },
   },

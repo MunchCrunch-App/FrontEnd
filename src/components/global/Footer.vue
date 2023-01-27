@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute bottom-0 flex items-center justify-evenly w-full h-[70px] bg-white"
+    class="fixed bottom-0 right-0 z-10 flex items-center justify-evenly w-full h-[48px] bg-white"
   >
     <div class="cursor-pointer">
       <HomeIcon
@@ -30,10 +30,10 @@
 </template>
 
 <script>
-import HomeIcon from "../../assets/svgComponents/HomeIcon.vue";
-import ListIcon from "../../assets/svgComponents/ListIcon.vue";
-import HeartIcon from "../../assets/svgComponents/HeartIcon.vue";
-import MyPageIcon from "../../assets/svgComponents/MyPageIcon.vue";
+import HomeIcon from '../../assets/svgComponents/HomeIcon.vue';
+import ListIcon from '../../assets/svgComponents/ListIcon.vue';
+import HeartIcon from '../../assets/svgComponents/HeartIcon.vue';
+import MyPageIcon from '../../assets/svgComponents/MyPageIcon.vue';
 
 export default {
   components: {
