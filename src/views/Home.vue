@@ -12,7 +12,7 @@
         "
         @click="onClickTab(0)"
       >
-        추천
+        추천111
       </div>
       <div
         class="flex items-center justify-center w-full h-full border-b-[3px] cursor-pointer text-[20px]"
