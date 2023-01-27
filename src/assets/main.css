@@ -8,6 +8,406 @@
   font-weight: 400;
   font-style: normal;
 }
+@font-face {
+  font-family: Pretendard;
+  src: local(Pretendard-ExtraLight),
+    url(/path/to/Pretendard-ExtraLight.woff2) format("woff2"),
+    url(/path/to/Pretendard-ExtraLight.woff) format("woff"),
+    url(/path/to/Pretendard-ExtraLight.ttf) format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: Pretendard;
+  src: local(Pretendard-Light),
+    url(/path/to/Pretendard-Light.woff2) format("woff2"),
+    url(/path/to/Pretendard-Light.woff) format("woff"),
+    url(/path/to/Pretendard-Light.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: Pretendard;
+  src: local(Pretendard-Medium),
+    url(/path/to/Pretendard-Medium.woff2) format("woff2"),
+    url(/path/to/Pretendard-Medium.woff) format("woff"),
+    url(/path/to/Pretendard-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: Pretendard;
+  src: local(Pretendard-SemiBold),
+    url(/path/to/Pretendard-SemiBold.woff2) format("woff2"),
+    url(/path/to/Pretendard-SemiBold.woff) format("woff"),
+    url(/path/to/Pretendard-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: Pretendard;
+  src: local(Pretendard-Bold),
+    url(/path/to/Pretendard-Bold.woff2) format("woff2"),
+    url(/path/to/Pretendard-Bold.woff) format("woff"),
+    url(/path/to/Pretendard-Bold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: ProximaNova;
+  src: local(ProximaNova-Light),
+    url(/path/to/ProximaNova-Light.woff2) format("woff2"),
+    url(/path/to/ProximaNova-Light.woff) format("woff"),
+    url(/path/to/ProximaNova-Light.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: ProximaNova;
+  src: local(ProximaNova-Medium),
+    url(/path/to/ProximaNova-Medium.woff2) format("woff2"),
+    url(/path/to/ProximaNova-Medium.woff) format("woff"),
+    url(/path/to/ProximaNova-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: ProximaNova;
+  src: local(ProximaNova-Semibold),
+    url(/path/to/ProximaNova-Semibold.woff2) format("woff2"),
+    url(/path/to/ProximaNova-Semibold.woff) format("woff"),
+    url(/path/to/ProximaNova-Semibold.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+}
+.Pretendard-30px {
+  font-family: Pretendard;
+  font-size: 30px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #000;
+}
+.Proxima-Nova-25px {
+  font-family: ProximaNova;
+  font-size: 25px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.6;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Pretendard-22px-2 {
+  font-family: Pretendard;
+  font-size: 22px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.64;
+  letter-spacing: normal;
+  color: #fff;
+}
+.Pretendard-22px {
+  font-family: Pretendard;
+  font-size: 22px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.64;
+  letter-spacing: normal;
+  color: #000;
+}
+.Pretendard-20px-4 {
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Pretendard-20px {
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #fff;
+}
+.Proxima-Nova-20px-2 {
+  font-family: ProximaNova;
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.75;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Pretendard-20px-5 {
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.3;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Pretendard-20px-3 {
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.15;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Pretendard-20px-2 {
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Proxima-Nova-20px {
+  font-family: ProximaNova;
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.75;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Proxima-Nova-19px {
+  font-family: ProximaNova;
+  font-size: 19px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.79;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Proxima-Nova-19px-2 {
+  font-family: ProximaNova;
+  font-size: 19px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.79;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.top-menu-selected {
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.top-menu-Disabled {
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Pretendard-18px {
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.39;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Apple-SD-Gothic-Neo-17px {
+  font-family: AppleSDGothicNeo;
+  font-size: 17px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Pretendard-17px {
+  font-family: Pretendard;
+  font-size: 17px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000;
+}
+.Product-sale-percentage {
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Product-discount-price {
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Proxima-Nova-16px {
+  font-family: ProximaNova;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.94;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Proxima-Nova-16px-2 {
+  font-family: ProximaNova;
+  font-size: 16px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.94;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Pretendard-15px {
+  font-family: Pretendard;
+  font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000;
+}
+.Product-title {
+  font-family: Pretendard;
+  font-size: 15px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Pretendard-15px-2 {
+  font-family: Pretendard;
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Pretendard-15px-3 {
+  font-family: Pretendard;
+  font-size: 15px;
+  font-weight: 200;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Pretendard-14px-3 {
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #fff;
+}
+.Pretendard-14px-2 {
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000;
+}
+.Pretendard-14px {
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Product-retail-price {
+  font-family: Pretendard;
+  font-size: 13px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Pretendard-12px {
+  font-family: Pretendard;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--munchcrunch);
+}
+.Proxima-Nova-12px {
+  font-family: ProximaNova;
+  font-size: 12px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  color: #000;
+}
 
 #app {
   font-family: Pretendard-Regular;
