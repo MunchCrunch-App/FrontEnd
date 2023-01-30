@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed bottom-0 right-0 z-10 flex items-center justify-evenly w-full h-[48px] bg-white"
+    class="fixed bottom-0 z-10 flex items-center justify-evenly max-w[428px] w-full max-w-[428px] h-[48px] bg-white"
   >
     <div class="cursor-pointer">
       <HomeIcon
