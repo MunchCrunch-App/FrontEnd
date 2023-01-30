@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-start w-full h-[180px] box-border">
-    <div class="flex items-center w-full h-full box-border px-5">
+    <div class="flex items-center w-full h-full box-border pl-5">
       <div
         class="flex flex-col items-center justify-center min-w-[93px] h-[140px] mr-4 rounded-[32px] bg-beGreen box-border cursor-pointer"
       >
@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import api from '../../../api/api';
+import api from '@/api/api';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 export default {

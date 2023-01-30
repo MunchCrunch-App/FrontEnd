@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute top-0 flex flex-row items-center justify-between w-full h-[55px] bg-beRed"
+    class="absolute top-0 flex flex-row items-center justify-between max-w-[428px] w-full h-[55px] bg-beRed"
   >
     <div class="ml-4">
       <img
@@ -13,7 +13,7 @@
       class="flex flex-row mx-auto w-[128px] h-[32px] bg-beRed2 rounded-[20px] text-[14px] font-medium"
     >
       <div
-        class="flex items-center justify-center w-full cursor-pointer text-white"
+        class="flex items-center justify-center w-full cursor-pointer"
         :class="
           petState === 0 ? 'bg-white text-beRed rounded-2xl' : 'text-white'
         "
