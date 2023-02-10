@@ -2,6 +2,8 @@
   <div
     class="relative max-w-[428px] w-full min-h-screen h-full pt-[55px] pb-[48px] font-pretendard"
   >
+    <Header></Header>
+
     <div
       class="flex items-center justify-evenly w-full h-[46px] px-5 bg-white box-border text-beBlack"
     >
@@ -45,11 +47,11 @@
           </div>
           <BannerCarousel></BannerCarousel>
           <div class="grid grid-cols-2 gap-5 m-5">
-            <ProductList
+            <Product
               v-for="product in recommendationProductList"
               :key="product.id"
               :product="product"
-            ></ProductList>
+            ></Product>
           </div>
         </swiper-slide>
 
@@ -59,11 +61,11 @@
           <TimeAttackCarousel></TimeAttackCarousel>
           <BannerCarousel></BannerCarousel>
           <div class="grid grid-cols-2 gap-5 m-5">
-            <ProductList
+            <Product
               v-for="product in specialPriceProductList"
               :key="product.id"
               :product="product"
-            ></ProductList>
+            ></Product>
           </div>
         </swiper-slide>
 
@@ -73,11 +75,11 @@
           <TimeAttackCarousel></TimeAttackCarousel>
           <BannerCarousel></BannerCarousel>
           <div class="grid grid-cols-2 gap-5 m-5">
-            <ProductList
+            <Product
               v-for="product in feedsProductList"
               :key="product.id"
               :product="product"
-            ></ProductList>
+            ></Product>
           </div>
         </swiper-slide>
 
@@ -87,11 +89,11 @@
           <TimeAttackCarousel></TimeAttackCarousel>
           <BannerCarousel></BannerCarousel>
           <div class="grid grid-cols-2 gap-5 m-5">
-            <ProductList
+            <Product
               v-for="product in snacksProductList"
               :key="product.id"
               :product="product"
-            ></ProductList>
+            ></Product>
           </div>
         </swiper-slide>
 
@@ -101,22 +103,37 @@
           <TimeAttackCarousel></TimeAttackCarousel>
           <BannerCarousel></BannerCarousel>
           <div class="grid grid-cols-2 gap-5 m-5">
-            <ProductList
+            <Product
               v-for="product in goodsproductList"
               :key="product.id"
               :product="product"
-            ></ProductList>
+            ></Product>
           </div>
         </swiper-slide>
       </swiper>
+    </div>
+
+    <Footer :FooterClickState="FooterClickState"></Footer>
+    <div
+      v-show="scrollState"
+      class="flex items-center pr-5 box-border justify-end fixed bottom-[62px] z-20 max-w-[428px] w-full"
+    >
+      <img
+        class="w-[34px] h-[34px] cursor-pointer"
+        src="@/assets/munchcrunch_button_gotop.png"
+        alt="top"
+        @click="scrollToTop"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import Header from '../components/global/Header.vue';
+import Footer from '../components/global/Footer.vue';
 import TimeAttackCarousel from '@/components/home/globalHome/TimeAttackCarousel.vue';
 import BannerCarousel from '@/components/home/globalHome/BannerCarousel.vue';
-import ProductList from '@/components/home/globalHome/Product.vue';
+import Product from '@/components/home/globalHome/Product.vue';
 import timeAttack from '@/assets/munchcrunch-time-attack.webp';
 import solo from '@/assets/munchcrunch-solo.webp';
 import munchspick from '@/assets/munchcrunch-munchspick.webp';
@@ -131,12 +148,16 @@ export default {
   components: {
     TimeAttackCarousel: TimeAttackCarousel,
     BannerCarousel: BannerCarousel,
-    ProductList: ProductList,
+    Product: Product,
+    Header,
+    Footer,
     Swiper,
     SwiperSlide,
   },
   data() {
     return {
+      FooterClickState: 0,
+      scrollState: false,
       swipeRef: null,
       categoryState: 0,
       recommendationProductList: [],
@@ -195,6 +216,14 @@ export default {
     };
   },
   methods: {
+    onScroll() {
+      if (window.scrollY >= 900) {
+        this.scrollState = true;
+      } else this.scrollState = false;
+    },
+    scrollToTop() {
+      window.scrollTo(0, 0);
+    },
     onSwiper(swiper) {
       this.swipeRef = swiper;
     },
@@ -232,9 +261,13 @@ export default {
       this.goodsproductList = res.data.result;
     },
   },
-  async created() {
+  created() {
     this.getRecommendationProductList();
     this.getSpecialPriceProductList();
+    window.addEventListener('scroll', this.onScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
   },
 };
 </script>

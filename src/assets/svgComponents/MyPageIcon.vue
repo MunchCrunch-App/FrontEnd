@@ -13,7 +13,6 @@
         stroke-linecap: round;
         stroke-linejoin: round;
         fill: none;
-
         stroke-width: 2px;
       "
       :stroke="color"
@@ -33,7 +32,7 @@ export default {
   props: {
     color: {
       type: String,
-      default: "#000",
+      default: '#000',
     },
   },
 };
