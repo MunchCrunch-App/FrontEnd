@@ -2,10 +2,11 @@
   <div
     class="absolute top-0 flex flex-row items-center justify-between max-w-[428px] w-full h-[55px] bg-beRed"
   >
-    <div class="ml-4">
+    <div class="ml-4 cursor-pointer"
+    @click="$router.push('/')">
       <img
-        class="w-[88px] h-[37px]"
-        src="../../assets/munchcrunch-logo.webp"
+        class="w-[88px] h-[37px] "
+        src="../../../assets/munchcrunch-logo.webp"
         alt="logo"
       />
     </div>
@@ -33,11 +34,12 @@
     </div>
     <div class="flex flex-row items-center mr-4 gap-4">
       <img
-        class="w-[25.6px] h-[24.6px]"
-        src="../../assets/icon_search.svg"
+        class="w-[25.6px] h-[24.6px] cursor-pointer"
+        src="../../../assets/icon_search.svg"
         alt="search"
+        @click="$router.push('/search')"
       />
-      <img class="w-8 h-8" src="../../assets/bell.svg" alt="search" />
+      <img class="w-8 h-8" src="../../../assets/bell.svg" alt="search" />
     </div>
   </div>
 </template>
