@@ -10,26 +10,27 @@
             >
                 <img
                     class="w-[18px]"
-                    src="../assets/munchcrunch_icon_search@2x.png"
+                    src="@/assets/munchcrunch_icon_search@2x.png"
                     alt="search"
                 />
                 <input
+                    ref="searchinput"
                     type="text"
                     class="ml-3 h-full w-full rounded-r-[19.5px] bg-transparent outline-none placeholder:text-[17px]"
                     placeholder="검색어를 입력해주세요"
                 />
             </div>
         </div>
-        <div class="flex w-full flex-col items-start px-5">
+        <div class="box-border flex w-full flex-col items-start px-5">
             <div class="mb-8 flex w-full flex-col items-start">
                 <div class="text-xl font-medium">인기 검색어</div>
                 <div class="text-[15px] font-extralight text-beGray2">
                     최근 검색 횟수가 급상승한 검색어에요
                 </div>
             </div>
-            <div>
+            <div class="mx-5 w-full pr-10">
                 <div
-                    class="ml-5 flex h-10 items-center"
+                    class="box-border flex h-10 w-full items-center border-b-[1px] border-beGray"
                     v-for="(keyword, index) in popularKeywordList"
                     :key="index"
                 >
@@ -46,7 +47,7 @@
 </template>
 
 <script>
-import Header from '../components/global/Header.vue';
+import Header from '@/components/global/Header.vue';
 
 export default {
     components: { Header: Header },
@@ -65,6 +66,14 @@ export default {
                 '탈구방지',
             ],
         };
+    },
+    methods: {
+        autoFocus() {
+            this.$refs.searchinput.focus();
+        },
+    },
+    mounted() {
+        this.autoFocus();
     },
 };
 </script>

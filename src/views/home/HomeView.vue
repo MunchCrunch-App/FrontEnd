@@ -1,16 +1,16 @@
 <template>
     <div
-        class="relative max-w-[428px] w-full min-h-screen h-full pt-[55px] pb-[48px] font-pretendard bg-white"
+        class="relative h-full min-h-screen w-full max-w-[428px] bg-white pt-[55px] pb-[48px] font-pretendard"
     >
         <Header></Header>
 
         <div
-            class="flex items-center justify-evenly w-full h-[46px] px-5 box-border text-beBlack"
+            class="box-border flex h-[46px] w-full items-center justify-evenly px-5 text-beBlack"
         >
             <div
                 v-for="(tab, index) in largeTabsData"
                 :key="index"
-                class="flex items-center justify-center w-full h-full border-b-[3px] cursor-pointer"
+                class="flex h-full w-full cursor-pointer items-center justify-center border-b-[3px]"
                 :class="
                     categoryState === tab.state
                         ? 'border-beRed font-bold text-beRed'
@@ -21,36 +21,44 @@
                 {{ tab.title }}
             </div>
         </div>
-        <div class="w-full h-[13px] bg-beGray"></div>
+        <div class="h-[13px] w-full bg-beGray"></div>
 
-        <div class="w-full h-full">
+        <div class="h-full w-full">
             <swiper
-                class="w-full h-full bg-white"
+                class="h-full w-full bg-white"
                 :threshold="40"
                 @swiper="onSwiper"
                 @slideChange="onSlideChange"
             >
                 <swiper-slide
-                    class="h-full w-full flex flex-col justify-center items-center"
+                    class="flex h-full w-full flex-col items-center justify-center"
                 >
                     <TimeAttackCarousel></TimeAttackCarousel>
-                    <div class="w-full h-[13px] bg-beGray"></div>
+                    <div class="h-[13px] w-full bg-beGray"></div>
                     <div
-                        class="w-full h-[98px] flex items-center justify-center gap-3"
+                        class="flex h-[98px] w-full items-center justify-center gap-3"
                     >
                         <div
                             v-for="(tab, index) in smallTabsData"
                             :key="index"
-                            class="flex flex-col justify-center items-center gap-2 w-[54px] cursor-pointer"
+                            class="flex w-[54px] cursor-pointer flex-col items-center justify-center gap-2"
+                            @click="
+                                $router.push({
+                                    name: 'smallCategory',
+                                    params: {
+                                        smallCategory: tab.path,
+                                    },
+                                })
+                            "
                         >
-                            <img class="w-[40px] h-[38px]" :src="tab.image" />
+                            <img class="h-[38px] w-[40px]" :src="tab.image" />
                             <div class="text-xs font-medium">
                                 {{ tab.title }}
                             </div>
                         </div>
                     </div>
                     <BannerCarousel></BannerCarousel>
-                    <div class="grid grid-cols-2 gap-5 m-5">
+                    <div class="m-5 grid grid-cols-2 gap-5">
                         <Product
                             v-for="product in recommendationProductList"
                             :key="product.id"
@@ -60,11 +68,11 @@
                 </swiper-slide>
 
                 <swiper-slide
-                    class="w-full h-fit flex flex-col justify-center items-center"
+                    class="flex h-fit w-full flex-col items-center justify-center"
                 >
                     <TimeAttackCarousel></TimeAttackCarousel>
                     <BannerCarousel></BannerCarousel>
-                    <div class="grid grid-cols-2 gap-5 m-5">
+                    <div class="m-5 grid grid-cols-2 gap-5">
                         <Product
                             v-for="product in specialPriceProductList"
                             :key="product.id"
@@ -74,11 +82,11 @@
                 </swiper-slide>
 
                 <swiper-slide
-                    class="w-full h-full flex flex-col justify-center items-center"
+                    class="flex h-full w-full flex-col items-center justify-center"
                 >
                     <TimeAttackCarousel></TimeAttackCarousel>
                     <BannerCarousel></BannerCarousel>
-                    <div class="grid grid-cols-2 gap-5 m-5">
+                    <div class="m-5 grid grid-cols-2 gap-5">
                         <Product
                             v-for="product in feedsProductList"
                             :key="product.id"
@@ -88,11 +96,11 @@
                 </swiper-slide>
 
                 <swiper-slide
-                    class="w-full h-full flex flex-col justify-center items-center"
+                    class="flex h-full w-full flex-col items-center justify-center"
                 >
                     <TimeAttackCarousel></TimeAttackCarousel>
                     <BannerCarousel></BannerCarousel>
-                    <div class="grid grid-cols-2 gap-5 m-5">
+                    <div class="m-5 grid grid-cols-2 gap-5">
                         <Product
                             v-for="product in snacksProductList"
                             :key="product.id"
@@ -102,11 +110,11 @@
                 </swiper-slide>
 
                 <swiper-slide
-                    class="w-full h-full flex flex-col justify-center items-center"
+                    class="flex h-full w-full flex-col items-center justify-center"
                 >
                     <TimeAttackCarousel></TimeAttackCarousel>
                     <BannerCarousel></BannerCarousel>
-                    <div class="grid grid-cols-2 gap-5 m-5">
+                    <div class="m-5 grid grid-cols-2 gap-5">
                         <Product
                             v-for="product in goodsproductList"
                             :key="product.id"
@@ -120,10 +128,10 @@
         <Footer :FooterClickState="FooterClickState"></Footer>
         <div
             v-show="scrollState"
-            class="flex items-center pr-5 box-border justify-end fixed bottom-[62px] z-20 max-w-[428px] w-full"
+            class="fixed bottom-[62px] z-20 box-border flex w-full max-w-[428px] items-center justify-end pr-5"
         >
             <img
-                class="w-[34px] h-[34px] cursor-pointer"
+                class="h-[34px] w-[34px] cursor-pointer"
                 src="@/assets/munchcrunch_button_gotop.png"
                 alt="top"
                 @click="scrollToTop"
@@ -133,8 +141,8 @@
 </template>
 
 <script>
-import Header from '../components/home/globalHome/HomeHeader.vue';
-import Footer from '../components/global/Footer.vue';
+import Header from '@/components/home/globalHome/HomeHeader.vue';
+import Footer from '@/components/global/Footer.vue';
 import TimeAttackCarousel from '@/components/home/globalHome/TimeAttackCarousel.vue';
 import BannerCarousel from '@/components/home/globalHome/BannerCarousel.vue';
 import Product from '@/components/home/globalHome/Product.vue';
@@ -173,26 +181,32 @@ export default {
                 {
                     title: '타임어택',
                     image: timeAttack,
+                    path: 'time-attack',
                 },
                 {
                     title: '솔로구매',
                     image: solo,
+                    path: 'solo',
                 },
                 {
                     title: '먼치스픽',
                     image: munchspick,
+                    path: 'munchs-pick',
                 },
                 {
                     title: '리더스픽',
                     image: leader,
+                    path: 'leaders-pick',
                 },
                 {
                     title: '특가구매',
                     image: specialPrice,
+                    path: 'specialPrice',
                 },
                 {
                     title: '팀구독',
                     image: team,
+                    path: 'team',
                 },
             ],
             largeTabsData: [
