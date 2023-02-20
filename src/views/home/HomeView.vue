@@ -152,7 +152,7 @@ import munchspick from '@/assets/munchcrunch-munchspick.webp';
 import leader from '@/assets/munchcrunch-button-leader.webp';
 import specialPrice from '@/assets/munchcrunch-special-price.webp';
 import team from '@/assets/munchcrunch-team.webp';
-import api from '@/api/api';
+import { mockApi } from '@/api/api';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 
@@ -259,23 +259,23 @@ export default {
             if (index === 4) this.getGoodsProductList();
         },
         async getRecommendationProductList() {
-            let res = await api.get('home/recommendation-itemlist');
+            let res = await mockApi.get('home/recommendation-itemlist');
             this.recommendationProductList = res.data.result;
         },
         async getSpecialPriceProductList() {
-            let res = await api.get('home/special-price-itemlist');
+            let res = await mockApi.get('home/special-price-itemlist');
             this.specialPriceProductList = res.data.result;
         },
         async getFeedsProductList() {
-            let res = await api.get('home/feeds-itemlist');
+            let res = await mockApi.get('home/feeds-itemlist');
             this.feedsProductList = res.data.result;
         },
         async getSnacksProductList() {
-            let res = await api.get('home/snacks-itemlist');
+            let res = await mockApi.get('home/snacks-itemlist');
             this.snacksProductList = res.data.result;
         },
         async getGoodsProductList() {
-            let res = await api.get('home/goods-itemlist');
+            let res = await mockApi.get('home/goods-itemlist');
             this.goodsproductList = res.data.result;
         },
     },
