@@ -1,5 +1,8 @@
 <template>
-    <div class="mx-auto flex h-fit max-w-[160px] flex-col">
+    <div
+        class="mx-auto flex h-fit max-w-[160px] flex-col"
+        @click="$store.dispatch('getProductDetail', { id: product.id })"
+    >
         <img
             class="mb-3 h-[160px]"
             :src="product.imageUrl"
