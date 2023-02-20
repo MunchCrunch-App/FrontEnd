@@ -35,7 +35,22 @@ const router = createRouter({
         {
             path: '/mypage',
             name: 'mypage',
-            component: () => import('../views/MyPageView.vue'),
+            component: () => import('../views/mypage/MyPageView.vue'),
+        },
+        {
+            path: '/mypage/basic-info',
+            name: '/mypage/basic-info',
+            component: () => import('../views/mypage/BasicInfoView.vue'),
+        },
+        {
+            path: '/mypage/edit-profile',
+            name: '/mypage/edit-profile',
+            component: () => import('../views/mypage/EditProfileView.vue'),
+        },
+        {
+            path: '/mypage/edit-address',
+            name: '/mypage/edit-address',
+            component: () => import('../views/mypage/EditAddressView.vue'),
         },
     ],
 });

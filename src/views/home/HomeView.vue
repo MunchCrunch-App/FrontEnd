@@ -59,11 +59,11 @@
                     </div>
                     <BannerCarousel></BannerCarousel>
                     <div class="m-5 grid grid-cols-2 gap-5">
-                        <Product
+                        <ProductType1
                             v-for="product in recommendationProductList"
                             :key="product.id"
                             :product="product"
-                        ></Product>
+                        ></ProductType1>
                     </div>
                 </swiper-slide>
 
@@ -73,11 +73,11 @@
                     <TimeAttackCarousel></TimeAttackCarousel>
                     <BannerCarousel></BannerCarousel>
                     <div class="m-5 grid grid-cols-2 gap-5">
-                        <Product
+                        <ProductType1
                             v-for="product in specialPriceProductList"
                             :key="product.id"
                             :product="product"
-                        ></Product>
+                        ></ProductType1>
                     </div>
                 </swiper-slide>
 
@@ -87,11 +87,11 @@
                     <TimeAttackCarousel></TimeAttackCarousel>
                     <BannerCarousel></BannerCarousel>
                     <div class="m-5 grid grid-cols-2 gap-5">
-                        <Product
+                        <ProductType1
                             v-for="product in feedsProductList"
                             :key="product.id"
                             :product="product"
-                        ></Product>
+                        ></ProductType1>
                     </div>
                 </swiper-slide>
 
@@ -101,11 +101,11 @@
                     <TimeAttackCarousel></TimeAttackCarousel>
                     <BannerCarousel></BannerCarousel>
                     <div class="m-5 grid grid-cols-2 gap-5">
-                        <Product
+                        <ProductType1
                             v-for="product in snacksProductList"
                             :key="product.id"
                             :product="product"
-                        ></Product>
+                        ></ProductType1>
                     </div>
                 </swiper-slide>
 
@@ -115,11 +115,11 @@
                     <TimeAttackCarousel></TimeAttackCarousel>
                     <BannerCarousel></BannerCarousel>
                     <div class="m-5 grid grid-cols-2 gap-5">
-                        <Product
+                        <ProductType1
                             v-for="product in goodsproductList"
                             :key="product.id"
                             :product="product"
-                        ></Product>
+                        ></ProductType1>
                     </div>
                 </swiper-slide>
             </swiper>
@@ -145,14 +145,14 @@ import Header from '@/components/home/globalHome/HomeHeader.vue';
 import Footer from '@/components/global/Footer.vue';
 import TimeAttackCarousel from '@/components/home/globalHome/TimeAttackCarousel.vue';
 import BannerCarousel from '@/components/home/globalHome/BannerCarousel.vue';
-import Product from '@/components/home/globalHome/Product.vue';
+import ProductType1 from '@/components/global/ProductType1.vue';
 import timeAttack from '@/assets/munchcrunch-time-attack.webp';
 import solo from '@/assets/munchcrunch-solo.webp';
 import munchspick from '@/assets/munchcrunch-munchspick.webp';
 import leader from '@/assets/munchcrunch-button-leader.webp';
 import specialPrice from '@/assets/munchcrunch-special-price.webp';
 import team from '@/assets/munchcrunch-team.webp';
-import api from '@/api/api';
+import { mockApi } from '@/api/api';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 
@@ -160,7 +160,7 @@ export default {
     components: {
         TimeAttackCarousel: TimeAttackCarousel,
         BannerCarousel: BannerCarousel,
-        Product: Product,
+        ProductType1: ProductType1,
         Header,
         Footer,
         Swiper,
@@ -259,23 +259,23 @@ export default {
             if (index === 4) this.getGoodsProductList();
         },
         async getRecommendationProductList() {
-            let res = await api.get('home/recommendation-itemlist');
+            let res = await mockApi.get('home/recommendation-itemlist');
             this.recommendationProductList = res.data.result;
         },
         async getSpecialPriceProductList() {
-            let res = await api.get('home/special-price-itemlist');
+            let res = await mockApi.get('home/special-price-itemlist');
             this.specialPriceProductList = res.data.result;
         },
         async getFeedsProductList() {
-            let res = await api.get('home/feeds-itemlist');
+            let res = await mockApi.get('home/feeds-itemlist');
             this.feedsProductList = res.data.result;
         },
         async getSnacksProductList() {
-            let res = await api.get('home/snacks-itemlist');
+            let res = await mockApi.get('home/snacks-itemlist');
             this.snacksProductList = res.data.result;
         },
         async getGoodsProductList() {
-            let res = await api.get('home/goods-itemlist');
+            let res = await mockApi.get('home/goods-itemlist');
             this.goodsproductList = res.data.result;
         },
     },

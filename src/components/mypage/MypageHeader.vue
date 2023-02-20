@@ -1,6 +1,6 @@
 <template>
     <div
-        class="absolute top-0 flex h-[56px] w-full max-w-[428px] flex-row items-center justify-between bg-beRed"
+        class="absolute top-0 flex h-[56px] w-full max-w-[428px] flex-row items-center justify-between border-b-[1px] border-beGray bg-white"
     >
         <img
             class="z-10 ml-3 w-[28px] cursor-pointer"
@@ -9,7 +9,7 @@
             @click="$router.go(-1)"
         />
         <div
-            class="absolute flex w-full items-center justify-center text-xl font-bold text-white"
+            class="absolute flex w-full items-center justify-center text-xl font-bold"
         >
             {{ title }}
         </div>
