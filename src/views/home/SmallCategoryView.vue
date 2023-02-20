@@ -14,11 +14,11 @@
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-5">
-                <Product
+                <ProductType1
                     v-for="product in list"
                     :key="product.id"
                     :product="product"
-                ></Product>
+                ></ProductType1>
             </div>
         </div>
     </div>
@@ -26,7 +26,8 @@
 
 <script>
 import Header from '@/components/global/Header.vue';
-import Product from '@/components/home/globalHome/Product.vue';
+import ProductType1 from '@/components/global/ProductType1.vue';
+
 import {
     getCurationTimeAttack,
     getCurationSolo,
@@ -34,10 +35,11 @@ import {
     getCurationLeader,
     getCurationSpecial,
 } from '@/api/get';
+
 export default {
     components: {
         Header: Header,
-        Product: Product,
+        ProductType1: ProductType1,
     },
     data() {
         return {

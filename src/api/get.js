@@ -30,3 +30,8 @@ export async function getCurationSpecial(filter) {
     );
     return data;
 }
+
+export async function getMyPick() {
+    const { data } = await mockApi.get(`/home/recommendation/curation/special`);
+    return data;
+}
