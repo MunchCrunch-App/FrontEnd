@@ -1,13 +1,13 @@
 <template>
-  <div
-    class="flex justify-center items-center w-full min-h-screen bg-slate-400"
-  >
-    <RouterView />
-  </div>
+    <div
+        class="relative flex min-h-screen w-full items-center justify-center bg-slate-400"
+    >
+        <RouterView />
+    </div>
 </template>
 
 <script>
 export default {
-  components: {},
+    components: {},
 };
 </script>

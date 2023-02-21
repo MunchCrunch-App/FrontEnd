@@ -26,7 +26,8 @@
                 </div>
             </div>
             <div
-                class="mb-3 flex min-h-[60px] w-full items-center justify-center border-[1px] border-beGray4"
+                class="mb-3 flex min-h-[60px] w-full cursor-pointer items-center justify-center border-[1px] border-beGray4"
+                @click="$router.push('/mypage/add-address')"
             >
                 + 새 배송지 추가하기
             </div>

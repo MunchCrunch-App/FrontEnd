@@ -13,6 +13,7 @@ module.exports = {
                 beGray2: '#848484',
                 beGray3: '#dedede',
                 beGray4: '#707070',
+                beGray5: 'rgb(24, 24, 27, 0.5)',
                 beGreen: '#E1FC89',
                 bePink: '#fad0ff ',
                 bePink2: '#f194fc',

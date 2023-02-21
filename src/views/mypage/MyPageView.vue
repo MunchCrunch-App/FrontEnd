@@ -29,7 +29,10 @@
             <div class="text-lg font-medium">나의 쇼핑 정보</div>
             <div class="mt-4 w-full border-b-[1px] border-black"></div>
             <div class="mt-5 flex items-center justify-between">
-                <div class="min-w-[100px]">
+                <div
+                    class="min-w-[100px] cursor-pointer"
+                    @click="$router.push('/mypage/team-purchase-process')"
+                >
                     <div class="flex justify-center text-[25px] font-semibold">
                         0
                     </div>
@@ -38,7 +41,10 @@
                     </div>
                 </div>
                 <img class="h-4 w-4" src="../../assets/icon-left.png" alt="" />
-                <div class="min-w-[100px]">
+                <div
+                    class="min-w-[100px] cursor-pointer"
+                    @click="$router.push('/mypage/deliver-process')"
+                >
                     <div class="flex justify-center text-[25px] font-semibold">
                         0
                     </div>
@@ -47,7 +53,10 @@
                     </div>
                 </div>
                 <img class="h-4 w-4" src="../../assets/icon-left.png" alt="" />
-                <div class="min-w-[100px]">
+                <div
+                    class="min-w-[100px] cursor-pointer"
+                    @click="$router.push('/mypage/deliver-finish')"
+                >
                     <div class="flex justify-center text-[25px] font-semibold">
                         0
                     </div>
