@@ -30,7 +30,12 @@
                             </div>
                             <div
                                 class="flex h-[40px] w-[50%] cursor-pointer items-center justify-center rounded-[20.5px] border-[1px] border-black"
-                                @click="display = null"
+                                @click="
+                                    () => {
+                                        display = null;
+                                        productId = product.id;
+                                    }
+                                "
                             >
                                 교환/환불/반품
                             </div>
@@ -38,6 +43,11 @@
                         <LargeBtn
                             title="후기작성하기"
                             font="text-base"
+                            @click="
+                                $router.push(
+                                    `/mypage/write-review/${product.id}`,
+                                )
+                            "
                         ></LargeBtn>
                     </div>
                 </ProductType2>
@@ -55,7 +65,12 @@
             <div
                 class="flex w-full flex-col items-center justify-center text-base font-bold leading-[2.19] text-black"
             >
-                <div class="cursor-pointer">네, 진행할게요</div>
+                <div
+                    class="cursor-pointer"
+                    @click="$router.push(`/mypage/refund/${productId}`)"
+                >
+                    네, 진행할게요
+                </div>
                 <div class="cursor-pointer" @click="display = 'hidden'">
                     취소
                 </div>
@@ -82,6 +97,7 @@ export default {
         return {
             display: 'hidden',
             productList: [],
+            productId: null,
         };
     },
     methods: {

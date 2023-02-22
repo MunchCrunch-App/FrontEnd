@@ -13,6 +13,8 @@ import TeamPurchaseProcessViewVue from '@/views/mypage/TeamPurchaseProcessView.v
 import DeliverProcessViewVue from '@/views/mypage/DeliverProcessView.vue';
 import DeliverFinishViewVue from '@/views/mypage/DeliverFinishView.vue';
 import OrderDetailViewVue from '@/views/mypage/OrderDetailView.vue';
+import WriteReviewViewVue from '../views/mypage/WriteReviewView.vue';
+import RefundViewVue from '../views/mypage/RefundView.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -87,6 +89,16 @@ const router = createRouter({
             path: '/mypage/order-detail/:id',
             name: '/mypage/order-detail/:id',
             component: OrderDetailViewVue,
+        },
+        {
+            path: '/mypage/write-review/:id',
+            name: '/mypage/write-review/:id',
+            component: WriteReviewViewVue,
+        },
+        {
+            path: '/mypage/refund/:id',
+            name: '/mypage/refund/:id',
+            component: RefundViewVue,
         },
     ],
 });
