@@ -40,7 +40,7 @@
             </div>
             <div class="mt-7 w-full">
                 <div class="text-[17px] font-semibold">신청방법</div>
-                <div class="mt-4 flex w-full">
+                <div class="item mt-4 flex w-full">
                     <div
                         class="mt-[4px] mr-1 box-border h-[18px] w-[18px] rounded-[50%] border-[1.5px] border-beGray4"
                     ></div>

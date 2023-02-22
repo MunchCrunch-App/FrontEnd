@@ -28,16 +28,49 @@
                     </div>
                 </div>
             </div>
+            <div
+                class="w-full border-b-[1px] py-6 px-7 text-[17px] font-semibold"
+            >
+                <div>배송, 포장 등 평점</div>
+                <div>별별별별별</div>
+            </div>
+            <div
+                class="w-full border-b-[1px] py-6 px-7 text-[17px] font-semibold"
+            >
+                <div>상품 품질 등 제품과 브랜드에 대한 평점</div>
+                <div>별별별별별</div>
+            </div>
+            <div class="item mt-4 flex w-full px-7">
+                <div
+                    class="mt-[4px] mr-1 box-border h-[18px] w-[18px] rounded-[50%] border-[1.5px] border-beGray4"
+                ></div>
+                <div class="text-base font-medium">반품 및 환불</div>
+            </div>
+            <div class="item mt-2 flex w-full px-7">
+                <div
+                    class="mt-[4px] mr-1 box-border h-[18px] w-[18px] rounded-[50%] border-[1.5px] border-beGray4"
+                ></div>
+                <div class="text-base font-medium">반품 및 환불</div>
+            </div>
+            <textarea
+                class="mx-7 mt-9 h-[192px] w-full max-w-[375px] resize-none border-[1px] border-beGray4 p-4"
+                placeholder="후기 내용을 적어주세요."
+            ></textarea>
+        </div>
+        <div class="mt-[34px]">
+            <LargeBtn title="구매후기 작성 완료"></LargeBtn>
         </div>
     </div>
 </template>
 
 <script>
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
+import LargeBtn from '@/components/global/LargeBtn.vue';
 
 export default {
     components: {
         MypageHeader,
+        LargeBtn,
     },
 };
 </script>
