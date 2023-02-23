@@ -73,11 +73,6 @@
             <div
                 class="mt-1 flex h-10 w-full items-center border-b-[1px] border-beGray3 text-[15px] font-light"
             >
-                쿠폰함
-            </div>
-            <div
-                class="flex h-10 w-full items-center border-b-[1px] border-beGray3 text-[15px] font-light"
-            >
                 후기관리
             </div>
             <div

@@ -13,12 +13,19 @@
                     <div class="pl-3">필터</div>
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-5">
+            <div v-if="params !== 'time-attack'" class="grid grid-cols-2 gap-5">
                 <ProductType1
                     v-for="product in list"
                     :key="product.id"
                     :product="product"
                 ></ProductType1>
+            </div>
+            <div v-if="params === 'time-attack'" class="grid grid-cols-1 gap-5">
+                <ProductType2
+                    v-for="product in list"
+                    :key="product.id"
+                    :product="product"
+                ></ProductType2>
             </div>
         </div>
     </div>
@@ -27,7 +34,7 @@
 <script>
 import Header from '@/components/global/Header.vue';
 import ProductType1 from '@/components/global/ProductType1.vue';
-
+import ProductType2 from '@/components/global/ProductType2.vue';
 import {
     getCurationTimeAttack,
     getCurationSolo,
@@ -38,17 +45,20 @@ import {
 
 export default {
     components: {
-        Header: Header,
-        ProductType1: ProductType1,
+        Header,
+        ProductType1,
+        ProductType2,
     },
     data() {
         return {
             title: '',
             filterState: 0,
             list: [],
+            params: null,
         };
     },
     created() {
+        this.params = this.$route.params.smallCategory;
         if (this.$route.params.smallCategory === 'time-attack') {
             this.title = '타임어택';
             getCurationTimeAttack(this.filterState).then((res) => {

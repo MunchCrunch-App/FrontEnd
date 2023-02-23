@@ -32,7 +32,7 @@
                                 class="flex h-[40px] w-[50%] cursor-pointer items-center justify-center rounded-[20.5px] border-[1px] border-black"
                                 @click="
                                     () => {
-                                        display = null;
+                                        madalDisplay = null;
                                         productId = product.id;
                                     }
                                 "
@@ -54,7 +54,7 @@
             </div>
         </div>
     </div>
-    <Modal :display="display" @closeModal="display = 'hidden'">
+    <Modal :display="madalDisplay" @closeModal="madalDisplay = 'hidden'">
         <div class="flex w-full flex-col items-center justify-center">
             <div
                 class="mb-8 flex w-full flex-col items-center justify-center text-base font-bold text-beGray2"
@@ -71,7 +71,7 @@
                 >
                     네, 진행할게요
                 </div>
-                <div class="cursor-pointer" @click="display = 'hidden'">
+                <div class="cursor-pointer" @click="madalDisplay = 'hidden'">
                     취소
                 </div>
             </div>
@@ -95,7 +95,7 @@ export default {
     },
     data() {
         return {
-            display: 'hidden',
+            madalDisplay: 'hidden',
             productList: [],
             productId: null,
         };

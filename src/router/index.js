@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/home/HomeView.vue';
 import SearchView from '@/views/home/SearchView.vue';
 import SmallCategoryView from '@/views/home/SmallCategoryView.vue';
-import CategoryShopViewVue from '@/views/CategoryShopView.vue';
+import CategoryShopViewVue from '@/views/categoryshop/CategoryShopView.vue';
 import MyPickViewVue from '@/views/MyPickView.vue';
 import MyPageViewVue from '@/views/mypage/MyPageView.vue';
 import BasicInfoViewVue from '@/views/mypage/BasicInfoView.vue';
@@ -13,8 +13,9 @@ import TeamPurchaseProcessViewVue from '@/views/mypage/TeamPurchaseProcessView.v
 import DeliverProcessViewVue from '@/views/mypage/DeliverProcessView.vue';
 import DeliverFinishViewVue from '@/views/mypage/DeliverFinishView.vue';
 import OrderDetailViewVue from '@/views/mypage/OrderDetailView.vue';
-import WriteReviewViewVue from '../views/mypage/WriteReviewView.vue';
-import RefundViewVue from '../views/mypage/RefundView.vue';
+import WriteReviewViewVue from '@/views/mypage/WriteReviewView.vue';
+import RefundViewVue from '@/views/mypage/RefundView.vue';
+import CategoryShopListViewVue from '@/views/categoryshop/CategoryShopListView.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -99,6 +100,11 @@ const router = createRouter({
             path: '/mypage/refund/:id',
             name: '/mypage/refund/:id',
             component: RefundViewVue,
+        },
+        {
+            path: '/categoryshop/list/:category/:subcategory',
+            name: '/categoryshop/list/:category/:subcategory',
+            component: CategoryShopListViewVue,
         },
     ],
 });
