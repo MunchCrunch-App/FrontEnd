@@ -46,7 +46,13 @@
                 :key="product.id"
             >
                 <ProductType2 :product="product">
-                    <LargeBtn title="후기 작성하기" font="h-[38px]"></LargeBtn>
+                    <LargeBtn
+                        title="후기 작성하기"
+                        font="h-[38px]"
+                        @click="
+                            $router.push(`/mypage/write-review/${product.id}`)
+                        "
+                    ></LargeBtn>
                 </ProductType2>
             </div>
         </div>
