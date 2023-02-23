@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/home/HomeView.vue';
 import SearchView from '@/views/home/SearchView.vue';
 import SmallCategoryView from '@/views/home/SmallCategoryView.vue';
-import CategoryShopViewVue from '@/views/CategoryShopView.vue';
+import CategoryShopViewVue from '@/views/categoryshop/CategoryShopView.vue';
 import MyPickViewVue from '@/views/MyPickView.vue';
 import MyPageViewVue from '@/views/mypage/MyPageView.vue';
 import BasicInfoViewVue from '@/views/mypage/BasicInfoView.vue';
@@ -13,6 +13,10 @@ import TeamPurchaseProcessViewVue from '@/views/mypage/TeamPurchaseProcessView.v
 import DeliverProcessViewVue from '@/views/mypage/DeliverProcessView.vue';
 import DeliverFinishViewVue from '@/views/mypage/DeliverFinishView.vue';
 import OrderDetailViewVue from '@/views/mypage/OrderDetailView.vue';
+import WriteReviewViewVue from '@/views/mypage/WriteReviewView.vue';
+import RefundViewVue from '@/views/mypage/RefundView.vue';
+import CategoryShopListViewVue from '@/views/categoryshop/CategoryShopListView.vue';
+import ReviewManagementViewVue from '@/views/mypage/ReviewManagementView.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -37,6 +41,11 @@ const router = createRouter({
             path: '/categoryshop',
             name: 'categoryshop',
             component: CategoryShopViewVue,
+        },
+        {
+            path: '/categoryshop/list/:category/:subcategory',
+            name: '/categoryshop/list/:category/:subcategory',
+            component: CategoryShopListViewVue,
         },
         {
             path: '/mypick',
@@ -87,6 +96,21 @@ const router = createRouter({
             path: '/mypage/order-detail/:id',
             name: '/mypage/order-detail/:id',
             component: OrderDetailViewVue,
+        },
+        {
+            path: '/mypage/write-review/:id',
+            name: '/mypage/write-review/:id',
+            component: WriteReviewViewVue,
+        },
+        {
+            path: '/mypage/refund/:id',
+            name: '/mypage/refund/:id',
+            component: RefundViewVue,
+        },
+        {
+            path: '/mypage/review-management',
+            name: '/mypage/review-management',
+            component: ReviewManagementViewVue,
         },
     ],
 });

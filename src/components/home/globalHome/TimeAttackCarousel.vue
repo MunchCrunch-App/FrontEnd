@@ -22,7 +22,7 @@
                 <swiper-slide
                     v-for="timeAttackItem in timeAttackLists"
                     :key="timeAttackItem.id"
-                    class="swiper-slide cursor-pointer"
+                    class="time-attack-slide cursor-pointer"
                 >
                     <div class="relative">
                         <img
@@ -119,8 +119,8 @@ export default {
 };
 </script>
 
-<style>
-.swiper-slide {
+<style scoped>
+.time-attack-slide {
     min-width: 100px;
     width: 100px;
 }

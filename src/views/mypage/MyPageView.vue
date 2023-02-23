@@ -71,12 +71,8 @@
             <div class="text-lg font-medium">나의 계정설정</div>
             <div class="mt-4 w-full border-b-[1px] border-black"></div>
             <div
-                class="mt-1 flex h-10 w-full items-center border-b-[1px] border-beGray3 text-[15px] font-light"
-            >
-                쿠폰함
-            </div>
-            <div
-                class="flex h-10 w-full items-center border-b-[1px] border-beGray3 text-[15px] font-light"
+                class="mt-1 flex h-10 w-full cursor-pointer items-center border-b-[1px] border-beGray3 text-[15px] font-light"
+                @click="$router.push('/mypage/review-management')"
             >
                 후기관리
             </div>
