@@ -16,6 +16,7 @@ import OrderDetailViewVue from '@/views/mypage/OrderDetailView.vue';
 import WriteReviewViewVue from '@/views/mypage/WriteReviewView.vue';
 import RefundViewVue from '@/views/mypage/RefundView.vue';
 import CategoryShopListViewVue from '@/views/categoryshop/CategoryShopListView.vue';
+import ReviewManagementViewVue from '@/views/mypage/ReviewManagementView.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,6 +41,11 @@ const router = createRouter({
             path: '/categoryshop',
             name: 'categoryshop',
             component: CategoryShopViewVue,
+        },
+        {
+            path: '/categoryshop/list/:category/:subcategory',
+            name: '/categoryshop/list/:category/:subcategory',
+            component: CategoryShopListViewVue,
         },
         {
             path: '/mypick',
@@ -102,9 +108,9 @@ const router = createRouter({
             component: RefundViewVue,
         },
         {
-            path: '/categoryshop/list/:category/:subcategory',
-            name: '/categoryshop/list/:category/:subcategory',
-            component: CategoryShopListViewVue,
+            path: '/mypage/review-management',
+            name: '/mypage/review-management',
+            component: ReviewManagementViewVue,
         },
     ],
 });
