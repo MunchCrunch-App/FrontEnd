@@ -3,7 +3,7 @@ import HomeView from '@/views/home/HomeView.vue';
 import SearchView from '@/views/home/SearchView.vue';
 import SmallCategoryView from '@/views/home/SmallCategoryView.vue';
 import CategoryShopViewVue from '@/views/categoryshop/CategoryShopView.vue';
-import MyPickViewVue from '@/views/MyPickView.vue';
+import MyPickViewVue from '@/views/mypick/MyPickView.vue';
 import MyPageViewVue from '@/views/mypage/MyPageView.vue';
 import BasicInfoViewVue from '@/views/mypage/BasicInfoView.vue';
 import EditProfileViewVue from '@/views/mypage/EditProfileView.vue';
@@ -17,6 +17,14 @@ import WriteReviewViewVue from '@/views/mypage/WriteReviewView.vue';
 import RefundViewVue from '@/views/mypage/RefundView.vue';
 import CategoryShopListViewVue from '@/views/categoryshop/CategoryShopListView.vue';
 import ReviewManagementViewVue from '@/views/mypage/ReviewManagementView.vue';
+import CustomerQuestionViewVue from '@/views/mypage/CustomerQuestionView.vue';
+import WriteQuestionViewVue from '@/views/mypage/WriteQuestionView.vue';
+import QuestionListViewVue from '@/views/mypage/QuestionListView.vue';
+import FrequentlyAskedQuestionViewVue from '@/views/mypage/FrequentlyAskedQuestionView.vue';
+import RefundListViewVue from '@/views/mypage/RefundListView.vue';
+import SettingViewVue from '@/views/mypage/SettingView.vue';
+import PrivacyViewVue from '@/views/mypage/PrivacyView.vue';
+import TermsOfUseViewVue from '@/views/mypage/TermsOfUseView.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -111,6 +119,46 @@ const router = createRouter({
             path: '/mypage/review-management',
             name: '/mypage/review-management',
             component: ReviewManagementViewVue,
+        },
+        {
+            path: '/mypage/customer-question',
+            name: '/mypage/customer-question',
+            component: CustomerQuestionViewVue,
+        },
+        {
+            path: '/mypage/write-question',
+            name: '/mypage/write-question',
+            component: WriteQuestionViewVue,
+        },
+        {
+            path: '/mypage/question-list',
+            name: '/mypage/question-list',
+            component: QuestionListViewVue,
+        },
+        {
+            path: '/mypage/frequently-asked-question',
+            name: '/mypage/frequently-asked-question',
+            component: FrequentlyAskedQuestionViewVue,
+        },
+        {
+            path: '/mypage/refund-list',
+            name: '/mypage/refund-list',
+            component: RefundListViewVue,
+        },
+        {
+            path: '/mypage/setting',
+            name: '/mypage/setting',
+            component: SettingViewVue,
+        },
+        {
+            path: '/mypage/privacy',
+            name: '/mypage/privacy',
+            component: PrivacyViewVue,
+        },
+        {
+            path: '/mypage/terms-of-use',
+            name: '/mypage/terms-of-use',
+            component: TermsOfUseViewVue,
         },
     ],
 });
