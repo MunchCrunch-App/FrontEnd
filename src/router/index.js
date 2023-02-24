@@ -25,6 +25,7 @@ import RefundListViewVue from '@/views/mypage/RefundListView.vue';
 import SettingViewVue from '@/views/mypage/SettingView.vue';
 import PrivacyViewVue from '@/views/mypage/PrivacyView.vue';
 import TermsOfUseViewVue from '@/views/mypage/TermsOfUseView.vue';
+import DetailViewVue from '@/views/etc/DetailView.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -159,6 +160,11 @@ const router = createRouter({
             path: '/mypage/terms-of-use',
             name: '/mypage/terms-of-use',
             component: TermsOfUseViewVue,
+        },
+        {
+            path: '/detail/:id',
+            name: '/detail/:id',
+            component: DetailViewVue,
         },
     ],
 });
