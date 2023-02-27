@@ -2,7 +2,7 @@
     <svg
         xmlns="http://www.w3.org/2000/svg"
         :width="width"
-        height="18.969"
+        :height="height"
         viewBox="0 0 20 18.969"
     >
         <path
@@ -21,6 +21,10 @@ export default {
             default: '#e7e8eb',
         },
         width: {
+            type: String,
+            default: '20',
+        },
+        height: {
             type: String,
             default: '20',
         },

@@ -26,6 +26,9 @@ import SettingViewVue from '@/views/mypage/SettingView.vue';
 import PrivacyViewVue from '@/views/mypage/PrivacyView.vue';
 import TermsOfUseViewVue from '@/views/mypage/TermsOfUseView.vue';
 import DetailViewVue from '@/views/etc/DetailView.vue';
+import ReviewListViewVue from '@/views/etc/ReviewListView.vue';
+import ProductQuestionListViewVue from '@/views/etc/ProductQuestionListView.vue';
+import WriteProductQuestionViewVue from '@/views/etc/WriteProductQuestionView.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -165,6 +168,21 @@ const router = createRouter({
             path: '/detail/:id',
             name: '/detail/:id',
             component: DetailViewVue,
+        },
+        {
+            path: '/review-list/:id',
+            name: '/review-list/:id',
+            component: ReviewListViewVue,
+        },
+        {
+            path: '/product-question-list/:id',
+            name: '/product-question-list/:id',
+            component: ProductQuestionListViewVue,
+        },
+        {
+            path: '/write-product-question/:id',
+            name: '/write-product-question/:id',
+            component: WriteProductQuestionViewVue,
         },
     ],
 });

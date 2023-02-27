@@ -52,10 +52,12 @@
                 ></div>
                 <div class="text-base font-medium">반품 및 환불</div>
             </div>
-            <textarea
-                class="mx-7 mt-9 h-[192px] w-full max-w-[375px] resize-none border-[1px] border-beGray4 p-4"
-                placeholder="후기 내용을 적어주세요."
-            ></textarea>
+            <div class="w-full px-7">
+                <textarea
+                    class="mt-9 h-[192px] w-full resize-none border-[1px] border-beGray4 p-4 outline-none"
+                    placeholder="후기 내용을 적어주세요."
+                ></textarea>
+            </div>
         </div>
         <div class="mt-[34px]">
             <LargeBtn title="구매후기 작성 완료"></LargeBtn>
