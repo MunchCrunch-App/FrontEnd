@@ -39,11 +39,15 @@
         <div class="flex h-[46px] w-full gap-2 px-7 text-xl font-semibold">
             <div
                 class="flex h-full w-full items-center justify-center rounded-[22px] border-[1px] border-beRed text-beRed"
+                @click="
+                    $router.push(`/mypage/order-detail/${$route.params.id}`)
+                "
             >
                 주문 내역 보기
             </div>
             <div
                 class="flex h-full w-full items-center justify-center rounded-[22px] bg-beRed text-white"
+                @click="$router.push(`/`)"
             >
                 쇼핑 계속하기
             </div>

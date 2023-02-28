@@ -111,7 +111,7 @@
                     <div class="flex h-full items-center">St***(1/2명)</div>
                     <div
                         class="flex h-9 w-[90px] cursor-pointer items-center justify-center rounded-[3px] bg-beRed text-base font-semibold text-white"
-                        @click="teamModalOpen"
+                        @click="participationTeamModalOpen"
                     >
                         팀구매 참여
                     </div>
@@ -268,7 +268,7 @@
 
         <DetailFooter
             @soloModalOpen="soloModalOpen"
-            @teamModalOpen="teamModalOpen"
+            @teamModalOpen="makeTeamModalOpen"
         ></DetailFooter>
 
         <ScrollToTop></ScrollToTop>
@@ -316,13 +316,23 @@ export default {
             };
         },
 
-        teamModalOpen() {
+        makeTeamModalOpen() {
             this.modalState = '';
             this.modalStyle = {
                 fontColor: 'text-beRed',
                 countBtn: 'bg-beRed',
                 bgColor: 'bg-beRed',
                 btnTitle: '2인 팀구매 오픈',
+            };
+        },
+
+        participationTeamModalOpen() {
+            this.modalState = '';
+            this.modalStyle = {
+                fontColor: 'text-beRed',
+                countBtn: 'bg-beRed',
+                bgColor: 'bg-beRed',
+                btnTitle: '팀구매 참여하기',
             };
         },
 
