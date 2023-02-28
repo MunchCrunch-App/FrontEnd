@@ -59,7 +59,17 @@
         <div class="flex w-full flex-col">
             <ReviewContent slotState="On"> </ReviewContent>
         </div>
-        <DetailFooter></DetailFooter>
+
+        <ToastModal
+            @closeModal="modalState = 'hidden'"
+            :display="modalState"
+            :modalStyle="modalStyle"
+        ></ToastModal>
+
+        <DetailFooter
+            @soloModalOpen="soloModalOpen"
+            @teamModalOpen="teamModalOpen"
+        ></DetailFooter>
     </div>
 </template>
 
@@ -68,6 +78,7 @@ import MypageHeader from '@/components/mypage/MypageHeader.vue';
 import Star from '@/assets/svgComponents/Star.vue';
 import ReviewContent from '@/components/global/ReviewContent.vue';
 import DetailFooter from '@/components/global/DetailFooter.vue';
+import ToastModal from '@/components/global/ToastModal.vue';
 
 export default {
     components: {
@@ -75,11 +86,36 @@ export default {
         Star,
         ReviewContent,
         DetailFooter,
+        ToastModal,
     },
     data() {
         return {
             tabState: 0,
+            modalState: 'hidden',
+            modalStyle: {},
         };
+    },
+
+    methods: {
+        soloModalOpen() {
+            this.modalState = '';
+            this.modalStyle = {
+                fontColor: 'text-beBlack',
+                countBtn: 'bg-beBlack',
+                bgColor: 'bg-bePink2',
+                btnTitle: '혼자 구매하기',
+            };
+        },
+
+        teamModalOpen() {
+            this.modalState = '';
+            this.modalStyle = {
+                fontColor: 'text-beRed',
+                countBtn: 'bg-beRed',
+                bgColor: 'bg-beRed',
+                btnTitle: '2인 팀구매 오픈',
+            };
+        },
     },
 };
 </script>

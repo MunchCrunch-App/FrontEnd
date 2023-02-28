@@ -29,6 +29,10 @@ import DetailViewVue from '@/views/etc/DetailView.vue';
 import ReviewListViewVue from '@/views/etc/ReviewListView.vue';
 import ProductQuestionListViewVue from '@/views/etc/ProductQuestionListView.vue';
 import WriteProductQuestionViewVue from '@/views/etc/WriteProductQuestionView.vue';
+import OrderPaymentViewVue from '@/views/etc/Order&PaymentView.vue';
+import PaymentMethodViewVue from '@/views/etc/PaymentMethodView.vue';
+import TeamOrderFinishViewVue from '@/views/etc/TeamOrderFinishView.vue';
+import SoloOrderFinishViewVue from '@/views/etc/SoloOrderFinishView.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -184,6 +188,28 @@ const router = createRouter({
             name: '/write-product-question/:id',
             component: WriteProductQuestionViewVue,
         },
+        {
+            path: '/order-payment/:id',
+            name: '/order-payment/:id',
+            component: OrderPaymentViewVue,
+        },
+        {
+            path: '/payment-method',
+            name: '/payment-method',
+            component: PaymentMethodViewVue,
+        },
+        {
+            path: '/team-order-finish',
+            name: '/team-order-finish',
+            component: TeamOrderFinishViewVue,
+        },
+        {
+            path: '/solo-order-finish',
+            name: '/solo-order-finish',
+            component: SoloOrderFinishViewVue,
+        },
+
+        ,
     ],
 });
 
