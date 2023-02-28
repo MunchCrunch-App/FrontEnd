@@ -124,19 +124,8 @@
                 </swiper-slide>
             </swiper>
         </div>
-
         <Footer :FooterClickState="FooterClickState"></Footer>
-        <div
-            v-show="scrollState"
-            class="fixed bottom-[62px] z-20 box-border flex w-full max-w-[428px] items-center justify-end pr-5"
-        >
-            <img
-                class="h-[34px] w-[34px] cursor-pointer"
-                src="@/assets/munchcrunch_button_gotop.png"
-                alt="top"
-                @click="scrollToTop"
-            />
-        </div>
+        <ScrollToTop></ScrollToTop>
     </div>
 </template>
 
@@ -152,6 +141,7 @@ import munchspick from '@/assets/munchcrunch-munchspick.webp';
 import leader from '@/assets/munchcrunch-button-leader.webp';
 import specialPrice from '@/assets/munchcrunch-special-price.webp';
 import team from '@/assets/munchcrunch-team.webp';
+import ScrollToTop from '@/components/global/ScrollToTop.vue';
 import { mockApi } from '@/api/api';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
@@ -165,11 +155,11 @@ export default {
         Footer,
         Swiper,
         SwiperSlide,
+        ScrollToTop,
     },
     data() {
         return {
             FooterClickState: 0,
-            scrollState: false,
             swipeRef: null,
             categoryState: 0,
             recommendationProductList: [],
@@ -234,14 +224,6 @@ export default {
         };
     },
     methods: {
-        onScroll() {
-            if (window.scrollY >= 900) {
-                this.scrollState = true;
-            } else this.scrollState = false;
-        },
-        scrollToTop() {
-            window.scrollTo(0, 0);
-        },
         onSwiper(swiper) {
             this.swipeRef = swiper;
         },

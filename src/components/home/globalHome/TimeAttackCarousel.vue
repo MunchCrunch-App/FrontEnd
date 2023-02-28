@@ -23,6 +23,7 @@
                     v-for="timeAttackItem in timeAttackLists"
                     :key="timeAttackItem.id"
                     class="time-attack-slide cursor-pointer"
+                    @click="$router.push(`/detail/${timeAttackItem.id}`)"
                 >
                     <div class="relative">
                         <img

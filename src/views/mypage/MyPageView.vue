@@ -77,12 +77,14 @@
                 후기관리
             </div>
             <div
-                class="flex h-10 w-full items-center border-b-[1px] border-beGray3 text-[15px] font-light"
+                class="flex h-10 w-full cursor-pointer items-center border-b-[1px] border-beGray3 text-[15px] font-light"
+                @click="$router.push('/mypage/customer-question')"
             >
                 고객문의관련
             </div>
             <div
-                class="flex h-10 w-full items-center border-b-[1px] border-beGray3 text-[15px] font-light"
+                class="flex h-10 w-full cursor-pointer items-center border-b-[1px] border-beGray3 text-[15px] font-light"
+                @click="$router.push('/mypage/refund-list')"
             >
                 취소/반품/환불
             </div>
@@ -91,7 +93,10 @@
             >
                 My Team
             </div>
-            <div class="flex h-10 w-full items-center text-[15px] font-light">
+            <div
+                class="flex h-10 w-full cursor-pointer items-center text-[15px] font-light"
+                @click="$router.push('/mypage/setting')"
+            >
                 설정
             </div>
         </div>

@@ -1,19 +1,19 @@
 <template>
-  <svg
-    version="1.0"
-    xmlns="http://www.w3.org/2000/svg"
-    width="32"
-    height="32"
-    viewBox="0 0 512.000000 512.000000"
-    preserveAspectRatio="xMidYMid meet"
-  >
-    <g
-      transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-      :fill="color"
-      stroke="none"
+    <svg
+        version="1.0"
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 512.000000 512.000000"
+        preserveAspectRatio="xMidYMid meet"
     >
-      <path
-        d="M1262 4830 c-319 -40 -586 -171 -812 -399 -203 -204 -325 -420 -395
+        <g
+            transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+            :fill="color"
+            stroke="none"
+        >
+            <path
+                d="M1262 4830 c-319 -40 -586 -171 -812 -399 -203 -204 -325 -420 -395
 -701 -124 -487 -34 -967 264 -1418 191 -289 438 -554 891 -958 288 -257 1167
 -1007 1210 -1032 40 -24 55 -27 140 -27 85 0 100 3 140 27 43 25 924 776 1210
 1032 455 406 700 670 891 958 298 451 388 931 264 1418 -70 281 -192 497 -395
@@ -24,18 +24,18 @@
 -832 105 -363 59 -744 -132 -1087 -160 -287 -427 -588 -892 -1005 -225 -201
 -1171 -1015 -1180 -1015 -10 0 -952 811 -1180 1015 -715 641 -997 1041 -1065
 1510 -44 303 19 629 172 886 230 387 678 599 1109 524z"
-      />
-    </g>
-  </svg>
+            />
+        </g>
+    </svg>
 </template>
 
 <script>
 export default {
-  props: {
-    color: {
-      type: String,
-      default: "#000",
+    props: {
+        color: {
+            type: String,
+            default: '#000',
+        },
     },
-  },
 };
 </script>
