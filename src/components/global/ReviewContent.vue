@@ -32,7 +32,7 @@
         블라블라블라블라블라블라블라블라블라블라블라블라
     </div>
 
-    <div class="mt-6 flex h-[125px] w-full justify-between px-5">
+    <div class="mt-6 flex h-[125px] w-full justify-between gap-2 px-5">
         <div class="h-[125px] w-[125px] rounded-[6px]">
             <img
                 class="h-full w-full rounded-[6px]"

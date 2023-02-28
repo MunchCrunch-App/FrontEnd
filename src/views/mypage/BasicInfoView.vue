@@ -19,6 +19,7 @@
             </div>
             <div
                 class="flex h-[60px] cursor-pointer items-center bg-white pl-5 text-lg font-medium"
+                @click="$router.push('/payment-method')"
             >
                 기본 결제방법 수정
             </div>
