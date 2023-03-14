@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col bg-white pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true" :footer="true">
         <MypageHeader title="이용약관"></MypageHeader>
         <div class="mt-[50px] flex w-full break-keep px-5 text-sm text-black">
             이용약관 제 1장 총칙 제 1조 [목적] 본 이용약관은 (주)먼치크런치
@@ -22,18 +20,17 @@
             통지하면서 회원에게 일정한 기한 내에 의사표시를 하지 않으면
             의사표시가 표명된 것으로 봅니다.
         </div>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
 
 export default {
     components: {
+        Layout,
         MypageHeader,
-    },
-    data() {
-        return {};
     },
 };
 </script>

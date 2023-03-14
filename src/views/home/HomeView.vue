@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative h-full min-h-screen w-full max-w-[428px] bg-white pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :header="true" :footer="true">
         <Header></Header>
 
         <div
@@ -11,11 +9,7 @@
                 v-for="(tab, index) in largeTabsData"
                 :key="index"
                 class="flex h-full w-full cursor-pointer items-center justify-center border-b-[3px]"
-                :class="
-                    categoryState === tab.state
-                        ? 'border-beRed font-bold text-beRed'
-                        : 'border-transparent font-medium '
-                "
+                :class="isCategoryState(tab.state)"
                 @click="onClickTab(tab.state)"
             >
                 {{ tab.title }}
@@ -23,113 +17,112 @@
         </div>
         <div class="h-[13px] w-full bg-beGray"></div>
 
-        <div class="h-full w-full">
-            <swiper
-                class="h-full w-full bg-white"
-                :threshold="40"
-                @swiper="onSwiper"
-                @slideChange="onSlideChange"
+        <swiper
+            :threshold="40"
+            @swiper="onSwiper"
+            @slideChange="onSlideChange"
+            :auto-height="true"
+        >
+            <swiper-slide
+                class="flex h-full w-full flex-col items-center justify-center"
             >
-                <swiper-slide
-                    class="flex h-full w-full flex-col items-center justify-center"
+                <TimeAttackCarousel></TimeAttackCarousel>
+                <div class="h-[13px] w-full bg-beGray"></div>
+                <div
+                    class="flex h-[98px] w-full items-center justify-center gap-3 px-5"
                 >
-                    <TimeAttackCarousel></TimeAttackCarousel>
-                    <div class="h-[13px] w-full bg-beGray"></div>
                     <div
-                        class="flex h-[98px] w-full items-center justify-center gap-3"
+                        v-for="(tab, index) in smallTabsData"
+                        :key="index"
+                        class="flex w-[54px] cursor-pointer flex-col items-center justify-center gap-2"
+                        @click="
+                            $router.push({
+                                name: 'smallCategory',
+                                params: {
+                                    smallCategory: tab.path,
+                                },
+                            })
+                        "
                     >
-                        <div
-                            v-for="(tab, index) in smallTabsData"
-                            :key="index"
-                            class="flex w-[54px] cursor-pointer flex-col items-center justify-center gap-2"
-                            @click="
-                                $router.push({
-                                    name: 'smallCategory',
-                                    params: {
-                                        smallCategory: tab.path,
-                                    },
-                                })
-                            "
-                        >
-                            <img class="h-[38px] w-[40px]" :src="tab.image" />
-                            <div class="text-xs font-medium">
-                                {{ tab.title }}
-                            </div>
+                        <img class="h-[38px] w-[40px]" :src="tab.image" />
+                        <div class="text-xs font-medium">
+                            {{ tab.title }}
                         </div>
                     </div>
-                    <BannerCarousel></BannerCarousel>
-                    <div class="m-5 grid grid-cols-2 gap-5">
-                        <ProductType1
-                            v-for="product in recommendationProductList"
-                            :key="product.id"
-                            :product="product"
-                        ></ProductType1>
-                    </div>
-                </swiper-slide>
+                </div>
+                <BannerCarousel></BannerCarousel>
+                <div class="m-5 grid grid-cols-2 gap-5">
+                    <ProductType1
+                        v-for="product in recommendationProductList"
+                        :key="product.id"
+                        :product="product"
+                    ></ProductType1>
+                </div>
+            </swiper-slide>
 
-                <swiper-slide
-                    class="flex h-fit w-full flex-col items-center justify-center"
-                >
-                    <TimeAttackCarousel></TimeAttackCarousel>
-                    <BannerCarousel></BannerCarousel>
-                    <div class="m-5 grid grid-cols-2 gap-5">
-                        <ProductType1
-                            v-for="product in specialPriceProductList"
-                            :key="product.id"
-                            :product="product"
-                        ></ProductType1>
-                    </div>
-                </swiper-slide>
+            <swiper-slide
+                class="flex h-fit w-full flex-col items-center justify-center"
+            >
+                <TimeAttackCarousel></TimeAttackCarousel>
+                <BannerCarousel></BannerCarousel>
+                <div class="m-5 grid grid-cols-2 gap-5">
+                    <ProductType1
+                        v-for="product in specialPriceProductList"
+                        :key="product.id"
+                        :product="product"
+                    ></ProductType1>
+                </div>
+            </swiper-slide>
 
-                <swiper-slide
-                    class="flex h-full w-full flex-col items-center justify-center"
-                >
-                    <TimeAttackCarousel></TimeAttackCarousel>
-                    <BannerCarousel></BannerCarousel>
-                    <div class="m-5 grid grid-cols-2 gap-5">
-                        <ProductType1
-                            v-for="product in feedsProductList"
-                            :key="product.id"
-                            :product="product"
-                        ></ProductType1>
-                    </div>
-                </swiper-slide>
+            <swiper-slide
+                class="flex h-full w-full flex-col items-center justify-center"
+            >
+                <TimeAttackCarousel></TimeAttackCarousel>
+                <BannerCarousel></BannerCarousel>
+                <div class="m-5 grid grid-cols-2 gap-5">
+                    <ProductType1
+                        v-for="product in feedsProductList"
+                        :key="product.id"
+                        :product="product"
+                    ></ProductType1>
+                </div>
+            </swiper-slide>
 
-                <swiper-slide
-                    class="flex h-full w-full flex-col items-center justify-center"
-                >
-                    <TimeAttackCarousel></TimeAttackCarousel>
-                    <BannerCarousel></BannerCarousel>
-                    <div class="m-5 grid grid-cols-2 gap-5">
-                        <ProductType1
-                            v-for="product in snacksProductList"
-                            :key="product.id"
-                            :product="product"
-                        ></ProductType1>
-                    </div>
-                </swiper-slide>
+            <swiper-slide
+                class="flex h-full w-full flex-col items-center justify-center"
+            >
+                <TimeAttackCarousel></TimeAttackCarousel>
+                <BannerCarousel></BannerCarousel>
+                <div class="m-5 grid grid-cols-2 gap-5">
+                    <ProductType1
+                        v-for="product in snacksProductList"
+                        :key="product.id"
+                        :product="product"
+                    ></ProductType1>
+                </div>
+            </swiper-slide>
 
-                <swiper-slide
-                    class="flex h-full w-full flex-col items-center justify-center"
-                >
-                    <TimeAttackCarousel></TimeAttackCarousel>
-                    <BannerCarousel></BannerCarousel>
-                    <div class="m-5 grid grid-cols-2 gap-5">
-                        <ProductType1
-                            v-for="product in goodsproductList"
-                            :key="product.id"
-                            :product="product"
-                        ></ProductType1>
-                    </div>
-                </swiper-slide>
-            </swiper>
-        </div>
-        <Footer :FooterClickState="FooterClickState"></Footer>
-        <ScrollToTop></ScrollToTop>
-    </div>
+            <swiper-slide
+                class="flex h-full w-full flex-col items-center justify-center"
+            >
+                <TimeAttackCarousel></TimeAttackCarousel>
+                <BannerCarousel></BannerCarousel>
+                <div class="m-5 grid grid-cols-2 gap-5">
+                    <ProductType1
+                        v-for="product in goodsproductList"
+                        :key="product.id"
+                        :product="product"
+                    ></ProductType1>
+                </div>
+            </swiper-slide>
+        </swiper>
+    </Layout>
+    <Footer :FooterClickState="FooterClickState"></Footer>
+    <ScrollToTop></ScrollToTop>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import Header from '@/components/home/globalHome/HomeHeader.vue';
 import Footer from '@/components/global/Footer.vue';
 import TimeAttackCarousel from '@/components/home/globalHome/TimeAttackCarousel.vue';
@@ -148,6 +141,7 @@ import 'swiper/css';
 
 export default {
     components: {
+        Layout,
         TimeAttackCarousel: TimeAttackCarousel,
         BannerCarousel: BannerCarousel,
         ProductType1: ProductType1,
@@ -223,22 +217,31 @@ export default {
             ],
         };
     },
+    computed: {
+        isCategoryState() {
+            return (state) => {
+                return this.categoryState === state
+                    ? 'border-beRed font-bold text-beRed'
+                    : 'border-transparent font-medium ';
+            };
+        },
+    },
     methods: {
         onSwiper(swiper) {
             this.swipeRef = swiper;
         },
         onSlideChange(swiper) {
             this.categoryState = swiper.activeIndex;
-            if (swiper.activeIndex === 1) this.getFeedsProductList();
-            if (swiper.activeIndex === 2) this.getSnacksProductList();
-            if (swiper.activeIndex === 3) this.getGoodsProductList();
+            // if (swiper.activeIndex === 1) this.getFeedsProductList();
+            // if (swiper.activeIndex === 2) this.getSnacksProductList();
+            // if (swiper.activeIndex === 3) this.getGoodsProductList();
         },
         onClickTab(index) {
             this.swipeRef?.slideTo(index, 200);
             this.categoryState = index;
-            if (index === 2) this.getFeedsProductList();
-            if (index === 3) this.getSnacksProductList();
-            if (index === 4) this.getGoodsProductList();
+            // if (index === 2) this.getFeedsProductList();
+            // if (index === 3) this.getSnacksProductList();
+            // if (index === 4) this.getGoodsProductList();
         },
         async getRecommendationProductList() {
             let res = await mockApi.get('home/recommendation-itemlist');
@@ -264,6 +267,11 @@ export default {
     created() {
         this.getRecommendationProductList();
         this.getSpecialPriceProductList();
+        this.getFeedsProductList();
+        this.getSnacksProductList();
+        this.getGoodsProductList();
+        // this.getRecommendationProductList();
+        // this.getSpecialPriceProductList();
         window.addEventListener('scroll', this.onScroll);
     },
     beforeUnmount() {

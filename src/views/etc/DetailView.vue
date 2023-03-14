@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col bg-white font-pretendard"
-    >
+    <Layout :flex="true">
         <div class="h-[428px] w-full">
             <img class="h-full w-full" src="@/assets/example.png" alt="image" />
             <img
@@ -166,7 +164,7 @@
 
         <div
             class="relative flex w-full flex-col overflow-hidden border-b-[13px] border-beGray"
-            :class="productInfoShow ? 'h-full' : 'max-h-[620px]'"
+            :class="productInfoShow ? 'min-h-full' : 'min-h-[620px]'"
         >
             <div
                 class="mt-[42px] flex w-full items-center justify-center text-[19px] font-bold"
@@ -202,10 +200,10 @@
         </div>
 
         <div
-            class="flex w-full flex-col overflow-hidden border-b-[13px] border-beGray text-[19px] font-medium"
+            class="flex min-h-[182px] w-full flex-col overflow-hidden border-b-[13px] border-beGray text-[19px] font-medium"
         >
             <div
-                class="flex h-[56px] w-full cursor-pointer items-center border-b-[1px] border-beGray px-5"
+                class="flex min-h-[56px] w-full cursor-pointer items-center border-b-[1px] border-beGray px-5"
                 @click="
                     $router.push(`/product-question-list/${$route.params.id}`)
                 "
@@ -213,11 +211,13 @@
                 상품문의(00)
             </div>
             <div
-                class="flex h-[56px] w-full items-center border-b-[1px] border-beGray px-5"
+                class="flex min-h-[56px] w-full items-center border-b-[1px] border-beGray px-5"
             >
                 배송/교환/반품/환불 정책
             </div>
-            <div class="flex h-[56px] w-full items-center px-5">회사정보</div>
+            <div class="flex min-h-[56px] w-full items-center px-5">
+                회사정보
+            </div>
         </div>
 
         <div
@@ -272,10 +272,11 @@
         ></DetailFooter>
 
         <ScrollToTop></ScrollToTop>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import StarVue from '@/assets/svgComponents/Star.vue';
 import ShareVue from '@/assets/svgComponents/Share.vue';
 import SearchVue from '@/assets/svgComponents/Search.vue';
@@ -287,6 +288,7 @@ import ToastModal from '@/components/global/ToastModal.vue';
 
 export default {
     components: {
+        Layout,
         StarVue,
         ShareVue,
         SearchVue,

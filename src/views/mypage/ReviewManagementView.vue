@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative h-full min-h-screen w-full max-w-[428px] bg-white pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true">
         <MypageHeader title="후기관리"></MypageHeader>
 
         <div
@@ -22,7 +20,7 @@
             </div>
         </div>
         <div
-            class="flex h-[62px] w-full items-center justify-center text-lg font-light"
+            class="flex min-h-[62px] w-full items-center justify-center text-lg font-light"
         >
             <div
                 class="flex h-full w-[50%] cursor-pointer items-center justify-center"
@@ -56,10 +54,11 @@
                 </ProductType2>
             </div>
         </div>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
 import LargeBtn from '@/components/global/LargeBtn.vue';
 import ProductType2 from '@/components/global/ProductType2.vue';
@@ -67,6 +66,7 @@ import { getMyPick } from '@/api/get';
 
 export default {
     components: {
+        Layout,
         MypageHeader,
         LargeBtn,
         ProductType2,

@@ -1,10 +1,8 @@
 <template>
-    <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col bg-white pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true">
         <MypageHeader title="배송 현황"></MypageHeader>
         <div
-            class="flex h-[72px] w-full items-center border-b-[1px] border-beGray pl-5 text-base font-semibold"
+            class="flex min-h-[72px] w-full items-center border-b-[1px] border-beGray pl-5 text-base font-semibold"
         >
             배송이 시작되었습니다.
         </div>
@@ -19,10 +17,11 @@
                 </ProductType2>
             </div>
         </div>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
 import ProductType2 from '@/components/global/ProductType2.vue';
 import { getMyPick } from '@/api/get';
@@ -30,6 +29,7 @@ import LargeBtn from '@/components/global/LargeBtn.vue';
 
 export default {
     components: {
+        Layout,
         MypageHeader,
         ProductType2,
         LargeBtn,

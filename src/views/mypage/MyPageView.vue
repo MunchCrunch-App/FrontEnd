@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative h-full min-h-screen w-full max-w-[428px] bg-white pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true" :footer="true">
         <MypageHeader title="마이페이지"></MypageHeader>
 
         <div
@@ -102,21 +100,23 @@
         </div>
 
         <Footer :FooterClickState="FooterClickState"></Footer>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import Footer from '@/components/global/Footer.vue';
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
 export default {
+    components: {
+        Layout,
+        Footer,
+        MypageHeader,
+    },
     data() {
         return {
             FooterClickState: 3,
         };
-    },
-    components: {
-        Footer,
-        MypageHeader,
     },
 };
 </script>

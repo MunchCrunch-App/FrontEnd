@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative h-full min-h-screen w-full max-w-[428px] bg-white pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true" :footer="true">
         <MypageHeader title="프로필 수정"></MypageHeader>
         <div class="w-full px-10">
             <div
@@ -32,18 +30,20 @@
                 value="닉네임"
             />
         </div>
-        <div class="absolute bottom-[68px] w-full">
+        <div class="mt-auto">
             <LargeBtn title="완료"></LargeBtn>
         </div>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
 import LargeBtn from '@/components/global/LargeBtn.vue';
 
 export default {
     components: {
+        Layout,
         MypageHeader,
         LargeBtn,
     },

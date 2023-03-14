@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col justify-between bg-white pb-[48px] pt-[56px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true">
         <MypageHeader title="주문완료"></MypageHeader>
 
         <div class="flex flex-col">
@@ -36,7 +34,9 @@
                 </div>
             </div>
         </div>
-        <div class="flex h-[46px] w-full gap-2 px-7 text-xl font-semibold">
+        <div
+            class="mt-auto mb-[68px] flex min-h-[46px] w-full gap-2 px-7 text-xl font-semibold"
+        >
             <div
                 class="flex h-full w-full items-center justify-center rounded-[22px] border-[1px] border-beRed text-beRed"
                 @click="
@@ -52,13 +52,15 @@
                 쇼핑 계속하기
             </div>
         </div>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
 export default {
     components: {
+        Layout,
         MypageHeader,
     },
 

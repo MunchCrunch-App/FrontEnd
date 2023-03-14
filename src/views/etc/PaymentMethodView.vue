@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col justify-between bg-white pb-[48px] pt-[56px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true" :footer="true">
         <MypageHeader title="결제방법"></MypageHeader>
 
         <div class="flex flex-col px-7">
@@ -60,18 +58,20 @@
                 </div>
             </div>
         </div>
-        <div class="">
+        <div class="mt-auto">
             <LargeBtn title="저장"></LargeBtn>
         </div>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
 import LargeBtn from '@/components/global/LargeBtn.vue';
 
 export default {
     components: {
+        Layout,
         MypageHeader,
         LargeBtn,
     },

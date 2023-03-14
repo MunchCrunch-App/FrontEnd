@@ -1,6 +1,6 @@
 <template>
     <div
-        class="absolute top-0 flex h-[56px] w-full max-w-[428px] flex-row items-center justify-between border-b-[1px] border-beGray bg-white"
+        class="fixed top-0 z-50 flex h-[56px] w-full max-w-[428px] flex-row items-center justify-between border-b-[1px] border-beGray bg-white bg-white"
     >
         <img
             class="z-10 ml-3 w-[28px] cursor-pointer"

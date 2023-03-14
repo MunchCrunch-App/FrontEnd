@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col bg-white pt-[56px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true">
         <MypageHeader title="주문/결제"></MypageHeader>
 
         <div class="flex flex-col border-b-[10px] border-beGray px-7 py-[30px]">
@@ -167,13 +165,15 @@
         >
             <span class="font-semibold">00,000</span>원 결제하기
         </div>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
 export default {
     components: {
+        Layout,
         MypageHeader,
     },
 

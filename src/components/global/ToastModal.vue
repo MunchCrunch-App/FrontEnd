@@ -1,6 +1,6 @@
 <template>
     <div
-        class="absolute top-0 z-30 h-full min-h-screen w-full bg-beBlack/50 px-10"
+        class="fixed top-0 z-30 h-full min-h-screen w-full bg-beBlack/50 px-10"
         :class="display"
         @click="this.animation = false"
     >

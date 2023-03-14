@@ -1,9 +1,9 @@
 <template>
     <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col bg-white pt-[55px] pb-[48px] font-pretendard"
+        class="relative flex h-screen w-full max-w-[428px] flex-col overflow-y-scroll bg-white pt-[55px] pb-[48px] font-pretendard scrollbar-hide"
     >
         <div
-            class="absolute top-0 flex h-[56px] w-full max-w-[428px] flex-row items-center justify-between border-b-[1px] border-beGray bg-white"
+            class="fixed top-0 flex h-[56px] w-full max-w-[428px] flex-row items-center justify-between border-b-[1px] border-beGray bg-white"
         >
             <img
                 class="z-10 ml-3 w-[28px] cursor-pointer"
@@ -70,7 +70,7 @@
             </swiper>
         </div>
 
-        <div class="h-[50px] w-full border-b-[1px] border-beGray">
+        <div class="min-h-[50px] w-full border-b-[1px] border-beGray">
             <swiper
                 class="flex h-full justify-center"
                 :slidesPerView="'auto'"
@@ -101,7 +101,7 @@
         </div>
 
         <div
-            class="flex h-[50px] w-full items-center justify-between px-5 text-[15px] font-light"
+            class="flex min-h-[50px] w-full items-center justify-between px-5 text-[15px] font-light"
         >
             <div>
                 총 <span class="font-bold">{{ productList.length }}</span

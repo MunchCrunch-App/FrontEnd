@@ -1,10 +1,8 @@
 <template>
-    <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col bg-white pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true">
         <MypageHeader title="배송 완료"></MypageHeader>
         <div
-            class="flex h-[72px] w-full flex-col items-start justify-center border-b-[1px] border-beGray pl-5 text-base font-semibold leading-tight"
+            class="flex min-h-[72px] w-full flex-col items-start justify-center border-b-[1px] border-beGray pl-5 text-base font-semibold leading-tight"
         >
             <div>상품이 잘 도착하였습니다.</div>
             <div>문제가 있을 시 고객센터로 연락주세요.</div>
@@ -53,7 +51,7 @@
                 </ProductType2>
             </div>
         </div>
-    </div>
+    </Layout>
     <Modal :display="madalDisplay" @closeModal="madalDisplay = 'hidden'">
         <div class="flex w-full flex-col items-center justify-center">
             <div
@@ -80,6 +78,7 @@
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
 import ProductType2 from '@/components/global/ProductType2.vue';
 import { getMyPick } from '@/api/get';
@@ -88,6 +87,7 @@ import Modal from '@/components/global/Modal.vue';
 
 export default {
     components: {
+        Layout,
         MypageHeader,
         ProductType2,
         LargeBtn,

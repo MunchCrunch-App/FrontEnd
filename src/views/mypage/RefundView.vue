@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col bg-white pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true" :footer="true">
         <MypageHeader title="교환/반품/환불 신청"></MypageHeader>
         <div class="w-full px-7">
             <div class="mt-9 w-full">
@@ -74,15 +72,17 @@
         <div class="mt-[34px]">
             <LargeBtn title="신청 완료"></LargeBtn>
         </div>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
 import LargeBtn from '@/components/global/LargeBtn.vue';
 
 export default {
     components: {
+        Layout,
         MypageHeader,
         LargeBtn,
     },

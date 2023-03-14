@@ -1,30 +1,28 @@
 <template>
-    <div
-        class="relative h-full min-h-screen w-full max-w-[428px] bg-beGray pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :header="true" :footer="true">
         <MypageHeader title="기본정보관리"></MypageHeader>
 
         <div class="flex h-full flex-col">
             <div
-                class="flex h-[60px] cursor-pointer items-center border-b-[1px] border-beGray3 bg-white pl-5 text-lg font-medium"
+                class="flex min-h-[60px] cursor-pointer items-center border-b-[1px] border-beGray3 bg-white pl-5 text-lg font-medium"
                 @click="$router.push('/mypage/edit-profile')"
             >
                 내 프로필 수정
             </div>
             <div
-                class="flex h-[60px] cursor-pointer items-center border-b-[1px] border-beGray3 bg-white pl-5 text-lg font-medium"
+                class="flex min-h-[60px] cursor-pointer items-center border-b-[1px] border-beGray3 bg-white pl-5 text-lg font-medium"
                 @click="$router.push('/mypage/edit-address')"
             >
                 기본 배송지 수정
             </div>
             <div
-                class="flex h-[60px] cursor-pointer items-center bg-white pl-5 text-lg font-medium"
+                class="flex min-h-[60px] cursor-pointer items-center bg-white pl-5 text-lg font-medium"
                 @click="$router.push('/payment-method')"
             >
                 기본 결제방법 수정
             </div>
             <div
-                class="mt-8 h-full w-full px-5 text-sm leading-[1.93] text-beGray4"
+                class="min-h-full w-full bg-beGray px-5 pt-8 text-sm leading-[1.93] text-beGray4"
             >
                 <div>법인명 : 주식회사 바크아웃라우드</div>
                 <div>대표 : 김민철</div>
@@ -35,23 +33,24 @@
                 <div>통신판매업 신고번호 : 제 xxxx-xxxxx-xxxx-호</div>
             </div>
         </div>
-
-        <Footer :FooterClickState="FooterClickState"></Footer>
-    </div>
+    </Layout>
+    <Footer :FooterClickState="FooterClickState"></Footer>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import Footer from '@/components/global/Footer.vue';
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
 export default {
+    components: {
+        Layout,
+        Footer,
+        MypageHeader,
+    },
     data() {
         return {
             FooterClickState: 3,
         };
-    },
-    components: {
-        Footer,
-        MypageHeader,
     },
 };
 </script>
