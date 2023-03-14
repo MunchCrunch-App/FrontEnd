@@ -1,3 +1,4 @@
+<!-- safari new Date 함수 이슈 확인 필요 -->
 <template>
     <div class="box-border flex h-[180px] w-full justify-start">
         <div class="box-border flex h-full w-full items-center pl-5">

@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-auto flex h-fit max-w-[184px] flex-col">
+    <div class="mx-auto flex h-fit w-full max-w-[184px] flex-col">
         <img
             class="mb-3 h-[160px]"
             :src="product.imageUrl"

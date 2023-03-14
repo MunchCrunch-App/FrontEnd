@@ -1,6 +1,6 @@
 <template>
     <div
-        class="absolute top-0 flex h-[55px] w-full max-w-[428px] flex-row items-center justify-between bg-beRed"
+        class="fixed top-0 z-50 flex h-[55px] w-full max-w-[428px] flex-row items-center justify-between bg-beRed"
     >
         <div class="ml-4 cursor-pointer" @click="$router.push('/')">
             <img
