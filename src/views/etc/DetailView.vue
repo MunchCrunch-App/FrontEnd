@@ -370,5 +370,13 @@ export default {
             });
         },
     },
+    beforeRouteLeave(to, from, next) {
+        if (this.modalState === '') {
+            next(false);
+            // setTimeout(() => (this.modalState = 'hidden'), 200);
+
+            // this.modalState = 'hidden';
+        } else next();
+    },
 };
 </script>

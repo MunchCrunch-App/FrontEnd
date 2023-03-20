@@ -10,6 +10,7 @@
                 v-for="product in productList"
                 :key="product.id"
                 :product="product"
+                ><template></template
             ></ProductType2>
         </div>
     </Layout>

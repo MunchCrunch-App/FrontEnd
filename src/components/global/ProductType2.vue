@@ -1,8 +1,11 @@
 <template>
     <div
-        class="flex h-fit w-full flex-col border-b-[10px] border-beGray px-5 py-6"
+        class="flex h-fit w-full cursor-pointer flex-col border-b-[10px] border-beGray px-5 py-6"
     >
-        <div class="grid w-full grid-cols-2 gap-x-3">
+        <div
+            class="grid w-full grid-cols-2 gap-x-3"
+            @click="$router.push(`/detail/${product.id}`)"
+        >
             <img class="h-[192px]" :src="product.imageUrl" alt="productImage" />
             <div class="flex min-w-[126px] flex-col justify-center">
                 <div
@@ -31,9 +34,7 @@
                 </div>
             </div>
         </div>
-        <div v-if="slot" class="mt-[22px]">
-            <slot></slot>
-        </div>
+        <slot></slot>
     </div>
 </template>
 

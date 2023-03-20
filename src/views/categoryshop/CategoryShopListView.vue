@@ -15,7 +15,7 @@
                 class="absolute flex w-full cursor-pointer items-center justify-center text-xl font-bold"
                 @click="
                     () => {
-                        categoryMadalDisplay = null;
+                        categoryModalDisplay = null;
                     }
                 "
             >
@@ -111,7 +111,7 @@
                 class="flex cursor-pointer items-center"
                 @click="
                     () => {
-                        filterMadalDisplay = null;
+                        filterModalDisplay = null;
                     }
                 "
             >
@@ -132,8 +132,8 @@
     </div>
 
     <Modal
-        :display="categoryMadalDisplay"
-        @closeModal="categoryMadalDisplay = 'hidden'"
+        :display="categoryModalDisplay"
+        @closeModal="categoryModalDisplay = 'hidden'"
     >
         <div class="mb-5 flex w-full flex-col items-center justify-center">
             <div class="mb-5 text-2xl font-semibold text-beGray2">카테고리</div>
@@ -152,8 +152,8 @@
     </Modal>
 
     <Modal
-        :display="filterMadalDisplay"
-        @closeModal="filterMadalDisplay = 'hidden'"
+        :display="filterModalDisplay"
+        @closeModal="filterModalDisplay = 'hidden'"
     >
         <div class="mb-5 flex w-full flex-col items-center justify-center">
             <div class="mb-5 text-2xl font-semibold text-beGray2">정렬</div>
@@ -192,8 +192,8 @@ export default {
 
     data() {
         return {
-            categoryMadalDisplay: 'hidden',
-            filterMadalDisplay: 'hidden',
+            categoryModalDisplay: 'hidden',
+            filterModalDisplay: 'hidden',
             modules: [Autoplay],
             FooterClickState: 1,
             display: 'hidden',
@@ -221,6 +221,7 @@ export default {
             );
             this.selectedCategory = nowCategory[0];
             this.selectedSubCategory = this.selectedCategory.subCategories;
+            this.categoryModalDisplay = 'hidden';
         },
 
         selectSubCategory(id) {
@@ -232,6 +233,7 @@ export default {
                 (filter) => filter.state === state,
             );
             this.selectedFilter = nowFliter[0];
+            this.filterModalDisplay = 'hidden';
         },
 
         getMyPickList() {
@@ -257,6 +259,16 @@ export default {
         this.getMyPickList();
         this.getCategoryList();
         this.selectedSubCategoryId = Number(this.$route.params.subcategory);
+    },
+    beforeRouteLeave(to, from, next) {
+        if (
+            this.categoryModalDisplay === null ||
+            this.filterModalDisplay === null
+        ) {
+            this.categoryModalDisplay = 'hidden';
+            this.filterModalDisplay = 'hidden';
+            next(false);
+        } else next();
     },
 };
 </script>

@@ -14,45 +14,47 @@
                 :key="product.id"
             >
                 <ProductType2 :product="product">
-                    <div class="flex flex-col">
-                        <div class="mx-5 mb-3 flex gap-3">
-                            <div
-                                class="flex h-[40px] w-[50%] cursor-pointer items-center justify-center rounded-[20.5px] border-[1px] border-black"
+                    <div class="mt-[22px]">
+                        <div class="flex flex-col">
+                            <div class="mx-5 mb-3 flex gap-3">
+                                <div
+                                    class="flex h-[40px] w-[50%] cursor-pointer items-center justify-center rounded-[20.5px] border-[1px] border-black"
+                                    @click="
+                                        $router.push(
+                                            `/mypage/order-detail/${product.id}`,
+                                        )
+                                    "
+                                >
+                                    주문상세
+                                </div>
+                                <div
+                                    class="flex h-[40px] w-[50%] cursor-pointer items-center justify-center rounded-[20.5px] border-[1px] border-black"
+                                    @click="
+                                        () => {
+                                            modalDisplay = null;
+                                            productId = product.id;
+                                        }
+                                    "
+                                >
+                                    교환/환불/반품
+                                </div>
+                            </div>
+                            <LargeBtn
+                                title="후기작성하기"
+                                font="text-base"
                                 @click="
                                     $router.push(
-                                        `/mypage/order-detail/${product.id}`,
+                                        `/mypage/write-review/${product.id}`,
                                     )
                                 "
-                            >
-                                주문상세
-                            </div>
-                            <div
-                                class="flex h-[40px] w-[50%] cursor-pointer items-center justify-center rounded-[20.5px] border-[1px] border-black"
-                                @click="
-                                    () => {
-                                        madalDisplay = null;
-                                        productId = product.id;
-                                    }
-                                "
-                            >
-                                교환/환불/반품
-                            </div>
+                            ></LargeBtn>
                         </div>
-                        <LargeBtn
-                            title="후기작성하기"
-                            font="text-base"
-                            @click="
-                                $router.push(
-                                    `/mypage/write-review/${product.id}`,
-                                )
-                            "
-                        ></LargeBtn>
                     </div>
                 </ProductType2>
             </div>
         </div>
     </Layout>
-    <Modal :display="madalDisplay" @closeModal="madalDisplay = 'hidden'">
+    <Modal :display="modalDisplay" @closeModal="modalDisplay = 'hidden'">
         <div class="flex w-full flex-col items-center justify-center">
             <div
                 class="mb-8 flex w-full flex-col items-center justify-center text-base font-bold text-beGray2"
@@ -69,7 +71,7 @@
                 >
                     네, 진행할게요
                 </div>
-                <div class="cursor-pointer" @click="madalDisplay = 'hidden'">
+                <div class="cursor-pointer" @click="modalDisplay = 'hidden'">
                     취소
                 </div>
             </div>
@@ -95,7 +97,7 @@ export default {
     },
     data() {
         return {
-            madalDisplay: 'hidden',
+            modalDisplay: 'hidden',
             productList: [],
             productId: null,
         };
@@ -109,6 +111,12 @@ export default {
     },
     created() {
         this.getMyPickList();
+    },
+    beforeRouteLeave(to, from, next) {
+        if (this.modalDisplay === null) {
+            this.modalDisplay = 'hidden';
+            next(false);
+        } else next();
     },
 };
 </script>

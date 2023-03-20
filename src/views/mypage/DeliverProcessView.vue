@@ -13,7 +13,9 @@
                 :key="product.id"
             >
                 <ProductType2 :product="product">
-                    <LargeBtn title="배송조회" font="text-lg"></LargeBtn>
+                    <div class="mt-[22px]">
+                        <LargeBtn title="배송조회" font="text-lg"></LargeBtn>
+                    </div>
                 </ProductType2>
             </div>
         </div>

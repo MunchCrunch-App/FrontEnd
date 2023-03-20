@@ -16,8 +16,14 @@
             </div>
         </div>
         <div class="h-[13px] w-full bg-beGray"></div>
-
+        <div
+            class="flex h-full w-full items-center justify-center"
+            v-if="loadingState"
+        >
+            <LoadingIndicater></LoadingIndicater>
+        </div>
         <swiper
+            v-else
             :threshold="40"
             @swiper="onSwiper"
             @slideChange="onSlideChange"
@@ -26,7 +32,9 @@
             <swiper-slide
                 class="flex h-full w-full flex-col items-center justify-center"
             >
-                <TimeAttackCarousel></TimeAttackCarousel>
+                <TimeAttackCarousel
+                    :timeAttackLists="timeAttackLists"
+                ></TimeAttackCarousel>
                 <div class="h-[13px] w-full bg-beGray"></div>
                 <div
                     class="flex h-[98px] w-full items-center justify-center gap-3 px-5"
@@ -63,7 +71,9 @@
             <swiper-slide
                 class="flex h-fit w-full flex-col items-center justify-center"
             >
-                <TimeAttackCarousel></TimeAttackCarousel>
+                <TimeAttackCarousel
+                    :timeAttackLists="timeAttackLists"
+                ></TimeAttackCarousel>
                 <BannerCarousel></BannerCarousel>
                 <div class="m-5 grid grid-cols-2 gap-5">
                     <ProductType1
@@ -77,7 +87,9 @@
             <swiper-slide
                 class="flex h-full w-full flex-col items-center justify-center"
             >
-                <TimeAttackCarousel></TimeAttackCarousel>
+                <TimeAttackCarousel
+                    :timeAttackLists="timeAttackLists"
+                ></TimeAttackCarousel>
                 <BannerCarousel></BannerCarousel>
                 <div class="m-5 grid grid-cols-2 gap-5">
                     <ProductType1
@@ -91,7 +103,9 @@
             <swiper-slide
                 class="flex h-full w-full flex-col items-center justify-center"
             >
-                <TimeAttackCarousel></TimeAttackCarousel>
+                <TimeAttackCarousel
+                    :timeAttackLists="timeAttackLists"
+                ></TimeAttackCarousel>
                 <BannerCarousel></BannerCarousel>
                 <div class="m-5 grid grid-cols-2 gap-5">
                     <ProductType1
@@ -105,7 +119,9 @@
             <swiper-slide
                 class="flex h-full w-full flex-col items-center justify-center"
             >
-                <TimeAttackCarousel></TimeAttackCarousel>
+                <TimeAttackCarousel
+                    :timeAttackLists="timeAttackLists"
+                ></TimeAttackCarousel>
                 <BannerCarousel></BannerCarousel>
                 <div class="m-5 grid grid-cols-2 gap-5">
                     <ProductType1
@@ -135,6 +151,7 @@ import leader from '@/assets/munchcrunch-button-leader.webp';
 import specialPrice from '@/assets/munchcrunch-special-price.webp';
 import team from '@/assets/munchcrunch-team.webp';
 import ScrollToTop from '@/components/global/ScrollToTop.vue';
+import LoadingIndicater from '@/components/global/LoadingIndicater.vue';
 import { mockApi } from '@/api/api';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
@@ -150,12 +167,16 @@ export default {
         Swiper,
         SwiperSlide,
         ScrollToTop,
+        LoadingIndicater,
+        LoadingIndicater,
     },
     data() {
         return {
+            loadingState: false,
             FooterClickState: 0,
             swipeRef: null,
             categoryState: 0,
+            timeAttackLists: [],
             recommendationProductList: [],
             specialPriceProductList: [],
             feedsProductList: [],
@@ -244,24 +265,69 @@ export default {
             // if (index === 4) this.getGoodsProductList();
         },
         async getRecommendationProductList() {
-            let res = await mockApi.get('home/recommendation-itemlist');
-            this.recommendationProductList = res.data.result;
+            this.loadingState = true;
+            try {
+                let res = await mockApi.get('home/recommendation-itemlist');
+                this.recommendationProductList = res.data.result;
+            } catch (err) {
+            } finally {
+                this.loadingState = false;
+            }
         },
         async getSpecialPriceProductList() {
-            let res = await mockApi.get('home/special-price-itemlist');
-            this.specialPriceProductList = res.data.result;
+            // this.loadingState = true;
+            try {
+                let res = await mockApi.get('home/special-price-itemlist');
+                this.specialPriceProductList = res.data.result;
+            } catch (err) {
+            } finally {
+                // this.loadingState = false;
+            }
         },
         async getFeedsProductList() {
-            let res = await mockApi.get('home/feeds-itemlist');
-            this.feedsProductList = res.data.result;
+            // this.loadingState = true;
+            try {
+                let res = await mockApi.get('home/feeds-itemlist');
+                this.feedsProductList = res.data.result;
+            } catch (err) {
+            } finally {
+                // this.loadingState = false;
+            }
         },
         async getSnacksProductList() {
-            let res = await mockApi.get('home/snacks-itemlist');
-            this.snacksProductList = res.data.result;
+            // this.loadingState = true;
+            try {
+                let res = await mockApi.get('home/snacks-itemlist');
+                this.snacksProductList = res.data.result;
+            } catch (err) {
+            } finally {
+                // this.loadingState = false;
+            }
         },
         async getGoodsProductList() {
-            let res = await mockApi.get('home/goods-itemlist');
-            this.goodsproductList = res.data.result;
+            // this.loadingState = true;
+            try {
+                let res = await mockApi.get('home/goods-itemlist');
+                this.goodsproductList = res.data.result;
+            } catch (err) {
+            } finally {
+                // this.loadingState = false;
+            }
+        },
+        async getTimeAttackProductList() {
+            // this.loadingState = true;
+            try {
+                const { data } = await mockApi.get(
+                    'home/recommendation-timeattack',
+                );
+                data.result.forEach((item) => {
+                    item.countTime = '00:00:00';
+                });
+                this.timeAttackLists = data.result;
+            } catch (err) {
+            } finally {
+                // this.loadingState = false;
+            }
         },
     },
     created() {
@@ -270,6 +336,7 @@ export default {
         this.getFeedsProductList();
         this.getSnacksProductList();
         this.getGoodsProductList();
+        this.getTimeAttackProductList();
         // this.getRecommendationProductList();
         // this.getSpecialPriceProductList();
         window.addEventListener('scroll', this.onScroll);
