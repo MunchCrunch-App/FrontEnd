@@ -163,35 +163,40 @@
         </div>
 
         <div
-            class="relative flex w-full flex-col overflow-hidden border-b-[13px] border-beGray"
-            :class="productInfoShow ? 'min-h-full' : 'min-h-[620px]'"
+            class="relative flex w-full flex-col border-b-[13px] border-beGray"
+            :class="productInfoShow ? ' ' : 'min-h-[620px] overflow-hidden'"
         >
             <div
                 class="mt-[42px] flex w-full items-center justify-center text-[19px] font-bold"
             >
                 상품소개
             </div>
-            <div class="mt-[28px] h-full w-full px-[15px]">
+            <div class="mt-[28px] h-fit w-full px-[15px]">
                 <img
-                    class="h-full w-full"
+                    class="aspect-auto w-full"
                     src="../../assets/example.png"
                     alt=""
                 />
                 <img
-                    class="h-full w-full"
+                    class="aspect-auto w-full"
+                    src="../../assets/example.png"
+                    alt=""
+                />
+                <img
+                    class="aspect-auto w-full"
                     src="../../assets/example.png"
                     alt=""
                 />
             </div>
             <div
-                v-if="!productInfoShow"
+                v-show="!productInfoShow"
                 class="absolute bottom-[24px] right-[50%] flex h-[46px] w-[calc(100%_-_40px)] translate-x-[50%] cursor-pointer items-center justify-center border-[1px] border-beGray4 bg-white px-5 text-base font-semibold"
                 @click="productInfoShow = true"
             >
                 상품정보 전체보기
             </div>
             <div
-                v-if="productInfoShow"
+                v-show="productInfoShow"
                 class="absolute bottom-[24px] right-[50%] flex h-[46px] w-[calc(100%_-_40px)] translate-x-[50%] cursor-pointer items-center justify-center border-[1px] border-beGray4 bg-white px-5 text-base font-semibold"
                 @click="productInfoShow = false"
             >
