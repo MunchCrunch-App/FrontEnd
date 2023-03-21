@@ -208,8 +208,6 @@ const router = createRouter({
             name: '/solo-order-finish',
             component: SoloOrderFinishViewVue,
         },
-
-        ,
     ],
 });
 
