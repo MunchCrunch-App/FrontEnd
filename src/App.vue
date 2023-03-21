@@ -25,8 +25,6 @@ export default {
             if (toDepth === fromDepth) this.transition = 'slide-up';
             if (toDepth < fromDepth) this.transition = 'slide-right';
             if (toDepth > fromDepth) this.transition = 'slide-left';
-
-            console.log(this.transition);
         },
     },
 };
