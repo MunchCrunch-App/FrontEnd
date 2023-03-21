@@ -266,7 +266,7 @@
         </div>
 
         <ToastModal
-            @closeModal="modalState = 'hidden'"
+            @closeModal="modalState = false"
             :display="modalState"
             :modalStyle="modalStyle"
         ></ToastModal>
@@ -307,14 +307,14 @@ export default {
     data() {
         return {
             productInfoShow: false,
-            modalState: 'hidden',
+            modalState: false,
             modalStyle: {},
         };
     },
 
     methods: {
         soloModalOpen() {
-            this.modalState = '';
+            this.modalState = true;
             this.modalStyle = {
                 fontColor: 'text-beBlack',
                 countBtn: 'bg-beBlack',
@@ -324,7 +324,7 @@ export default {
         },
 
         makeTeamModalOpen() {
-            this.modalState = '';
+            this.modalState = true;
             this.modalStyle = {
                 fontColor: 'text-beRed',
                 countBtn: 'bg-beRed',
@@ -334,7 +334,7 @@ export default {
         },
 
         participationTeamModalOpen() {
-            this.modalState = '';
+            this.modalState = true;
             this.modalStyle = {
                 fontColor: 'text-beRed',
                 countBtn: 'bg-beRed',
@@ -376,11 +376,9 @@ export default {
         },
     },
     beforeRouteLeave(to, from, next) {
-        if (this.modalState === '') {
+        if (this.modalState === true) {
             next(false);
-            // setTimeout(() => (this.modalState = 'hidden'), 200);
-
-            // this.modalState = 'hidden';
+            this.modalState = false;
         } else next();
     },
 };

@@ -1,12 +1,12 @@
 <template>
     <div
         class="fixed top-0 z-30 h-full min-h-screen w-full bg-beBlack/50 px-10"
-        :class="display"
-        @click="this.animation = false"
+        :class="background"
+        @click="$emit('closeModal')"
     >
         <div
             class="fixed bottom-0 left-[50%] z-40 flex w-full max-w-[428px] translate-x-[-50%] flex-col rounded-[20px] bg-white transition-all"
-            :class="animation ? ' translate-y-0' : 'translate-y-[100%]'"
+            :class="modal ? ' translate-y-0' : 'translate-y-[100%]'"
             @click.stop=""
         >
             <div class="mt-[38px] px-5">
@@ -55,8 +55,8 @@
 export default {
     props: {
         display: {
-            type: String,
-            default: null,
+            type: Boolean,
+            default: false,
         },
 
         modalStyle: {
@@ -73,24 +73,24 @@ export default {
     data() {
         return {
             count: 1,
-            animation: false,
+            background: 'hidden',
+            modal: false,
         };
     },
 
     watch: {
         display: {
             handler(value) {
-                if (value === '')
-                    setTimeout(() => (this.animation = true), 100);
-            },
-        },
+                if (value === true) {
+                    this.background = '';
 
-        animation: {
-            handler(value) {
-                if (value === false)
-                    setTimeout(() => this.$emit('closeModal'), 200);
-                this.count = 1;
+                    setTimeout(() => (this.modal = true), 100);
+                } else {
+                    this.modal = false;
+                    setTimeout(() => (this.background = 'hidden'), 100);
+                }
             },
+            immediate: true,
         },
     },
 

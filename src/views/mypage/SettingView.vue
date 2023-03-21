@@ -116,5 +116,11 @@ export default {
             switchBtn2: false,
         };
     },
+    beforeRouteLeave(to, from, next) {
+        if (this.madalDisplay === null) {
+            this.madalDisplay = 'hidden';
+            next(false);
+        } else next();
+    },
 };
 </script>
