@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col bg-white pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true" :footer="true">
         <MypageHeader title="문의하기"></MypageHeader>
         <div class="flex w-full flex-col items-center justify-center px-[26px]">
             <div class="mt-8 flex h-[50px] w-full max-w-[378px] text-base">
@@ -50,15 +48,17 @@
         <div class="mt-auto">
             <LargeBtn title="문의내용 작성완료"></LargeBtn>
         </div>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
 import LargeBtn from '@/components/global/LargeBtn.vue';
 
 export default {
     components: {
+        Layout,
         MypageHeader,
         LargeBtn,
     },

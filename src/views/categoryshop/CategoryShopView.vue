@@ -1,10 +1,8 @@
 <template>
-    <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col bg-white pb-[48px] font-pretendard"
-    >
+    <Layout>
         <div class="h-full w-full">
             <div
-                class="flex h-14 w-full cursor-pointer items-center justify-center"
+                class="flex h-14 w-full cursor-pointer items-center justify-center px-5"
                 @click="$router.push('/search')"
             >
                 <div
@@ -17,7 +15,7 @@
                     />
                     <div
                         type="text"
-                        class="ml-3 flex h-full w-full items-center rounded-[19.5px] bg-transparent text-[17px] text-beGray2 outline-none"
+                        class="ml-3 flex h-full w-full items-center rounded-[19.5px] bg-transparent text-[17px] leading-none text-beGray2 outline-none"
                     >
                         찾으시는 상품을 검색해보세요
                     </div>
@@ -139,10 +137,11 @@
         </div>
 
         <Footer :FooterClickState="FooterClickState"></Footer>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import Footer from '@/components/global/Footer.vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
@@ -150,7 +149,7 @@ import { Autoplay } from 'swiper';
 import { getCategoryList } from '@/api/get';
 
 export default {
-    components: { Footer, Swiper, SwiperSlide },
+    components: { Footer, Swiper, SwiperSlide, Layout },
     data() {
         return {
             modules: [Autoplay],

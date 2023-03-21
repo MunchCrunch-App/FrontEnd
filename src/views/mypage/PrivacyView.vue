@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col bg-white pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true" :footer="true">
         <MypageHeader title="개인정보 처리방침"></MypageHeader>
         <div class="mt-[50px] flex w-full break-keep px-5 text-sm text-black">
             개인정보 처리방침 (주)먼치크런치 (이하 ‘회사’라 한다.) 는 고객의
@@ -24,18 +22,17 @@
             이행할 예정입니다. 1. 앱 회원가입 및 회원관리 : 회원제 서비스 제공에
             따른 개인식별, 가입의사 확인, 이용약관 위반 회원에 대한 이용제
         </div>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
 
 export default {
     components: {
+        Layout,
         MypageHeader,
-    },
-    data() {
-        return {};
     },
 };
 </script>

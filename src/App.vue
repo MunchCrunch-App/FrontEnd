@@ -2,7 +2,7 @@
     <RouterView v-slot="{ Component }">
         <Transition name="route" mode="out-in">
             <div
-                class="relative flex min-h-screen w-full items-center justify-center bg-slate-400"
+                class="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-slate-400 font-pretendard"
                 :key="$route.name"
             >
                 <component :is="Component"></component>

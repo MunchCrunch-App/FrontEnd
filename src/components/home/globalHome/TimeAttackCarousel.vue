@@ -1,3 +1,4 @@
+<!-- safari new Date 함수 이슈 확인 필요 -->
 <template>
     <div class="box-border flex h-[180px] w-full justify-start">
         <div class="box-border flex h-full w-full items-center pl-5">
@@ -57,7 +58,6 @@
 </template>
 
 <script>
-import { mockApi } from '@/api/api';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 export default {
@@ -65,11 +65,13 @@ export default {
         Swiper,
         SwiperSlide,
     },
-    data() {
-        return {
-            timeAttackLists: [],
-        };
+    props: {
+        timeAttackLists: {
+            type: Array,
+            default: () => [],
+        },
     },
+
     methods: {
         onSwiper(swiper) {},
         onSlideChange(swiper) {},
@@ -109,13 +111,6 @@ export default {
             },
             deep: true,
         },
-    },
-    async created() {
-        const { data } = await mockApi.get('home/recommendation-timeattack');
-        data.result.forEach((item) => {
-            item.countTime = '00:00:00';
-        });
-        this.timeAttackLists = data.result;
     },
 };
 </script>

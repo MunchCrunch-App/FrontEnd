@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative h-full min-h-screen w-full max-w-[428px] bg-white pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :header="true">
         <Header :title="title"></Header>
         <div class="flex h-full w-full flex-col px-5 pt-10">
             <div
@@ -28,10 +26,11 @@
                 ></ProductType2>
             </div>
         </div>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import Header from '@/components/global/Header.vue';
 import ProductType1 from '@/components/global/ProductType1.vue';
 import ProductType2 from '@/components/global/ProductType2.vue';
@@ -45,6 +44,7 @@ import {
 
 export default {
     components: {
+        Layout,
         Header,
         ProductType1,
         ProductType2,

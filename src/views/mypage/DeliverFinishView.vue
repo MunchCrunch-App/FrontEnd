@@ -1,10 +1,8 @@
 <template>
-    <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col bg-white pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true">
         <MypageHeader title="배송 완료"></MypageHeader>
         <div
-            class="flex h-[72px] w-full flex-col items-start justify-center border-b-[1px] border-beGray pl-5 text-base font-semibold leading-tight"
+            class="flex min-h-[72px] w-full flex-col items-start justify-center border-b-[1px] border-beGray pl-5 text-base font-semibold leading-tight"
         >
             <div>상품이 잘 도착하였습니다.</div>
             <div>문제가 있을 시 고객센터로 연락주세요.</div>
@@ -16,45 +14,47 @@
                 :key="product.id"
             >
                 <ProductType2 :product="product">
-                    <div class="flex flex-col">
-                        <div class="mx-5 mb-3 flex gap-3">
-                            <div
-                                class="flex h-[40px] w-[50%] cursor-pointer items-center justify-center rounded-[20.5px] border-[1px] border-black"
+                    <div class="mt-[22px]">
+                        <div class="flex flex-col">
+                            <div class="mx-5 mb-3 flex gap-3">
+                                <div
+                                    class="flex h-[40px] w-[50%] cursor-pointer items-center justify-center rounded-[20.5px] border-[1px] border-black"
+                                    @click="
+                                        $router.push(
+                                            `/mypage/order-detail/${product.id}`,
+                                        )
+                                    "
+                                >
+                                    주문상세
+                                </div>
+                                <div
+                                    class="flex h-[40px] w-[50%] cursor-pointer items-center justify-center rounded-[20.5px] border-[1px] border-black"
+                                    @click="
+                                        () => {
+                                            modalDisplay = null;
+                                            productId = product.id;
+                                        }
+                                    "
+                                >
+                                    교환/환불/반품
+                                </div>
+                            </div>
+                            <LargeBtn
+                                title="후기작성하기"
+                                font="text-base"
                                 @click="
                                     $router.push(
-                                        `/mypage/order-detail/${product.id}`,
+                                        `/mypage/write-review/${product.id}`,
                                     )
                                 "
-                            >
-                                주문상세
-                            </div>
-                            <div
-                                class="flex h-[40px] w-[50%] cursor-pointer items-center justify-center rounded-[20.5px] border-[1px] border-black"
-                                @click="
-                                    () => {
-                                        madalDisplay = null;
-                                        productId = product.id;
-                                    }
-                                "
-                            >
-                                교환/환불/반품
-                            </div>
+                            ></LargeBtn>
                         </div>
-                        <LargeBtn
-                            title="후기작성하기"
-                            font="text-base"
-                            @click="
-                                $router.push(
-                                    `/mypage/write-review/${product.id}`,
-                                )
-                            "
-                        ></LargeBtn>
                     </div>
                 </ProductType2>
             </div>
         </div>
-    </div>
-    <Modal :display="madalDisplay" @closeModal="madalDisplay = 'hidden'">
+    </Layout>
+    <Modal :display="modalDisplay" @closeModal="modalDisplay = 'hidden'">
         <div class="flex w-full flex-col items-center justify-center">
             <div
                 class="mb-8 flex w-full flex-col items-center justify-center text-base font-bold text-beGray2"
@@ -71,7 +71,7 @@
                 >
                     네, 진행할게요
                 </div>
-                <div class="cursor-pointer" @click="madalDisplay = 'hidden'">
+                <div class="cursor-pointer" @click="modalDisplay = 'hidden'">
                     취소
                 </div>
             </div>
@@ -80,6 +80,7 @@
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
 import ProductType2 from '@/components/global/ProductType2.vue';
 import { getMyPick } from '@/api/get';
@@ -88,6 +89,7 @@ import Modal from '@/components/global/Modal.vue';
 
 export default {
     components: {
+        Layout,
         MypageHeader,
         ProductType2,
         LargeBtn,
@@ -95,7 +97,7 @@ export default {
     },
     data() {
         return {
-            madalDisplay: 'hidden',
+            modalDisplay: 'hidden',
             productList: [],
             productId: null,
         };
@@ -109,6 +111,12 @@ export default {
     },
     created() {
         this.getMyPickList();
+    },
+    beforeRouteLeave(to, from, next) {
+        if (this.modalDisplay === null) {
+            this.modalDisplay = 'hidden';
+            next(false);
+        } else next();
     },
 };
 </script>

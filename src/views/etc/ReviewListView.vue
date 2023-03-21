@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col bg-white pt-[55px] pb-[108px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true" :detailFooter="true">
         <MypageHeader title="구매후기"></MypageHeader>
 
         <div class="mt-5 flex w-full flex-col px-5">
@@ -65,15 +63,15 @@
             :display="modalState"
             :modalStyle="modalStyle"
         ></ToastModal>
-
-        <DetailFooter
-            @soloModalOpen="soloModalOpen"
-            @teamModalOpen="teamModalOpen"
-        ></DetailFooter>
-    </div>
+    </Layout>
+    <DetailFooter
+        @soloModalOpen="soloModalOpen"
+        @teamModalOpen="teamModalOpen"
+    ></DetailFooter>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
 import Star from '@/assets/svgComponents/Star.vue';
 import ReviewContent from '@/components/global/ReviewContent.vue';
@@ -82,6 +80,7 @@ import ToastModal from '@/components/global/ToastModal.vue';
 
 export default {
     components: {
+        Layout,
         MypageHeader,
         Star,
         ReviewContent,

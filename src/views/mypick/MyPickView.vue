@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative h-full min-h-screen w-full max-w-[428px] bg-white pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true" :footer="true">
         <Header :title="title"></Header>
         <div class="px-7 pt-[30px] pb-4 text-lg font-medium">
             <span class="text-xl font-bold">000 </span>님이 찜한 상품
@@ -12,13 +10,15 @@
                 v-for="product in productList"
                 :key="product.id"
                 :product="product"
+                ><template></template
             ></ProductType2>
         </div>
-        <Footer :FooterClickState="FooterClickState"></Footer>
-    </div>
+    </Layout>
+    <Footer :FooterClickState="FooterClickState"></Footer>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import Footer from '@/components/global/Footer.vue';
 import Header from '@/components/global/Header.vue';
 import ProductType2 from '@/components/global/productType2.vue';
@@ -26,9 +26,10 @@ import { getMyPick } from '@/api/get';
 
 export default {
     components: {
-        Header: Header,
-        Footer: Footer,
-        ProductType2: ProductType2,
+        Layout,
+        Header,
+        Footer,
+        ProductType2,
     },
     data() {
         return {

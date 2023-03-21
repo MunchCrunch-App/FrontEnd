@@ -1,9 +1,9 @@
 <template>
     <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col bg-white pt-[55px] pb-[48px] font-pretendard"
+        class="relative flex h-screen w-full max-w-[428px] flex-col overflow-y-scroll bg-white pt-[55px] pb-[48px] font-pretendard scrollbar-hide"
     >
         <div
-            class="absolute top-0 flex h-[56px] w-full max-w-[428px] flex-row items-center justify-between border-b-[1px] border-beGray bg-white"
+            class="fixed top-0 flex h-[56px] w-full max-w-[428px] flex-row items-center justify-between border-b-[1px] border-beGray bg-white"
         >
             <img
                 class="z-10 ml-3 w-[28px] cursor-pointer"
@@ -15,7 +15,7 @@
                 class="absolute flex w-full cursor-pointer items-center justify-center text-xl font-bold"
                 @click="
                     () => {
-                        categoryMadalDisplay = null;
+                        categoryModalDisplay = null;
                     }
                 "
             >
@@ -34,7 +34,7 @@
             />
         </div>
 
-        <div class="h-[200px] w-full">
+        <div class="min-h-[200px] w-full">
             <swiper
                 class="h-full w-full bg-white"
                 :centeredSlides="true"
@@ -70,7 +70,7 @@
             </swiper>
         </div>
 
-        <div class="h-[50px] w-full border-b-[1px] border-beGray">
+        <div class="min-h-[50px] w-full border-b-[1px] border-beGray">
             <swiper
                 class="flex h-full justify-center"
                 :slidesPerView="'auto'"
@@ -101,7 +101,7 @@
         </div>
 
         <div
-            class="flex h-[50px] w-full items-center justify-between px-5 text-[15px] font-light"
+            class="flex min-h-[50px] w-full items-center justify-between px-5 text-[15px] font-light"
         >
             <div>
                 총 <span class="font-bold">{{ productList.length }}</span
@@ -111,7 +111,7 @@
                 class="flex cursor-pointer items-center"
                 @click="
                     () => {
-                        filterMadalDisplay = null;
+                        filterModalDisplay = null;
                     }
                 "
             >
@@ -132,8 +132,8 @@
     </div>
 
     <Modal
-        :display="categoryMadalDisplay"
-        @closeModal="categoryMadalDisplay = 'hidden'"
+        :display="categoryModalDisplay"
+        @closeModal="categoryModalDisplay = 'hidden'"
     >
         <div class="mb-5 flex w-full flex-col items-center justify-center">
             <div class="mb-5 text-2xl font-semibold text-beGray2">카테고리</div>
@@ -152,8 +152,8 @@
     </Modal>
 
     <Modal
-        :display="filterMadalDisplay"
-        @closeModal="filterMadalDisplay = 'hidden'"
+        :display="filterModalDisplay"
+        @closeModal="filterModalDisplay = 'hidden'"
     >
         <div class="mb-5 flex w-full flex-col items-center justify-center">
             <div class="mb-5 text-2xl font-semibold text-beGray2">정렬</div>
@@ -192,8 +192,8 @@ export default {
 
     data() {
         return {
-            categoryMadalDisplay: 'hidden',
-            filterMadalDisplay: 'hidden',
+            categoryModalDisplay: 'hidden',
+            filterModalDisplay: 'hidden',
             modules: [Autoplay],
             FooterClickState: 1,
             display: 'hidden',
@@ -221,6 +221,7 @@ export default {
             );
             this.selectedCategory = nowCategory[0];
             this.selectedSubCategory = this.selectedCategory.subCategories;
+            this.categoryModalDisplay = 'hidden';
         },
 
         selectSubCategory(id) {
@@ -232,6 +233,7 @@ export default {
                 (filter) => filter.state === state,
             );
             this.selectedFilter = nowFliter[0];
+            this.filterModalDisplay = 'hidden';
         },
 
         getMyPickList() {
@@ -257,6 +259,16 @@ export default {
         this.getMyPickList();
         this.getCategoryList();
         this.selectedSubCategoryId = Number(this.$route.params.subcategory);
+    },
+    beforeRouteLeave(to, from, next) {
+        if (
+            this.categoryModalDisplay === null ||
+            this.filterModalDisplay === null
+        ) {
+            this.categoryModalDisplay = 'hidden';
+            this.filterModalDisplay = 'hidden';
+            next(false);
+        } else next();
     },
 };
 </script>

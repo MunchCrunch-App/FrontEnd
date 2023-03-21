@@ -1,10 +1,8 @@
 <template>
-    <div
-        class="relative h-full min-h-screen w-full max-w-[428px] bg-white pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :header="true">
         <Header title="검색"></Header>
 
-        <div class="flex h-[90px] w-full items-center justify-center">
+        <div class="flex h-[90px] w-full items-center justify-center px-5">
             <div
                 class="flex h-10 w-[390px] items-center rounded-[19.5px] border-[1px] border-solid border-beBlack pl-5"
             >
@@ -43,14 +41,15 @@
                 </div>
             </div>
         </div>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import Header from '@/components/global/Header.vue';
 
 export default {
-    components: { Header: Header },
+    components: { Layout, Header },
     data() {
         return {
             popularKeywordList: [

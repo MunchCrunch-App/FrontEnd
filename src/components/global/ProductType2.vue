@@ -1,14 +1,13 @@
 <template>
     <div
-        class="flex h-fit w-full flex-col border-b-[10px] border-beGray px-5 py-6"
+        class="flex h-fit w-full cursor-pointer flex-col border-b-[10px] border-beGray px-5 py-6"
     >
-        <div class="flex w-full flex-row">
-            <img
-                class="mr-3 h-[192px]"
-                :src="product.imageUrl"
-                alt="productImage"
-            />
-            <div class="flex flex-col justify-center">
+        <div
+            class="grid w-full grid-cols-2 gap-x-3"
+            @click="$router.push(`/detail/${product.id}`)"
+        >
+            <img class="h-[192px]" :src="product.imageUrl" alt="productImage" />
+            <div class="flex min-w-[126px] flex-col justify-center">
                 <div
                     class="mb-1 break-keep text-[16px] font-medium leading-tight text-beBlack"
                 >
@@ -35,9 +34,7 @@
                 </div>
             </div>
         </div>
-        <div class="mt-[22px]">
-            <slot></slot>
-        </div>
+        <slot></slot>
     </div>
 </template>
 

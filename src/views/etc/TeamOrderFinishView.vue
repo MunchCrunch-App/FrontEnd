@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative h-full min-h-screen w-full max-w-[428px] bg-white pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true">
         <Header title="구매완료"></Header>
         <div class="flex w-full flex-col">
             <div
@@ -81,14 +79,16 @@
                 <div class="text-base font-light">3,000원</div>
             </div>
         </div>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import Header from '@/components/global/Header.vue';
 
 export default {
     components: {
+        Layout,
         Header,
     },
     methods: {

@@ -1,5 +1,5 @@
 <template>
-    <div class="h-[200px] w-full">
+    <div class="h-[200px] min-h-[200px] w-full">
         <swiper
             class="h-full w-full bg-white"
             :centeredSlides="true"

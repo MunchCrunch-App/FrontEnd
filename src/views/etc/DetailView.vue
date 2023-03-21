@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col bg-white font-pretendard"
-    >
+    <Layout :flex="true">
         <div class="h-[428px] w-full">
             <img class="h-full w-full" src="@/assets/example.png" alt="image" />
             <img
@@ -165,35 +163,40 @@
         </div>
 
         <div
-            class="relative flex w-full flex-col overflow-hidden border-b-[13px] border-beGray"
-            :class="productInfoShow ? 'h-full' : 'max-h-[620px]'"
+            class="relative flex w-full flex-col border-b-[13px] border-beGray"
+            :class="productInfoShow ? ' ' : 'min-h-[620px] overflow-hidden'"
         >
             <div
                 class="mt-[42px] flex w-full items-center justify-center text-[19px] font-bold"
             >
                 상품소개
             </div>
-            <div class="mt-[28px] h-full w-full px-[15px]">
+            <div class="mt-[28px] h-fit w-full px-[15px]">
                 <img
-                    class="h-full w-full"
+                    class="aspect-auto w-full"
                     src="../../assets/example.png"
                     alt=""
                 />
                 <img
-                    class="h-full w-full"
+                    class="aspect-auto w-full"
+                    src="../../assets/example.png"
+                    alt=""
+                />
+                <img
+                    class="aspect-auto w-full"
                     src="../../assets/example.png"
                     alt=""
                 />
             </div>
             <div
-                v-if="!productInfoShow"
+                v-show="!productInfoShow"
                 class="absolute bottom-[24px] right-[50%] flex h-[46px] w-[calc(100%_-_40px)] translate-x-[50%] cursor-pointer items-center justify-center border-[1px] border-beGray4 bg-white px-5 text-base font-semibold"
                 @click="productInfoShow = true"
             >
                 상품정보 전체보기
             </div>
             <div
-                v-if="productInfoShow"
+                v-show="productInfoShow"
                 class="absolute bottom-[24px] right-[50%] flex h-[46px] w-[calc(100%_-_40px)] translate-x-[50%] cursor-pointer items-center justify-center border-[1px] border-beGray4 bg-white px-5 text-base font-semibold"
                 @click="productInfoShow = false"
             >
@@ -202,10 +205,10 @@
         </div>
 
         <div
-            class="flex w-full flex-col overflow-hidden border-b-[13px] border-beGray text-[19px] font-medium"
+            class="flex min-h-[182px] w-full flex-col overflow-hidden border-b-[13px] border-beGray text-[19px] font-medium"
         >
             <div
-                class="flex h-[56px] w-full cursor-pointer items-center border-b-[1px] border-beGray px-5"
+                class="flex min-h-[56px] w-full cursor-pointer items-center border-b-[1px] border-beGray px-5"
                 @click="
                     $router.push(`/product-question-list/${$route.params.id}`)
                 "
@@ -213,11 +216,13 @@
                 상품문의(00)
             </div>
             <div
-                class="flex h-[56px] w-full items-center border-b-[1px] border-beGray px-5"
+                class="flex min-h-[56px] w-full items-center border-b-[1px] border-beGray px-5"
             >
                 배송/교환/반품/환불 정책
             </div>
-            <div class="flex h-[56px] w-full items-center px-5">회사정보</div>
+            <div class="flex min-h-[56px] w-full items-center px-5">
+                회사정보
+            </div>
         </div>
 
         <div
@@ -261,7 +266,7 @@
         </div>
 
         <ToastModal
-            @closeModal="modalState = 'hidden'"
+            @closeModal="modalState = false"
             :display="modalState"
             :modalStyle="modalStyle"
         ></ToastModal>
@@ -272,10 +277,11 @@
         ></DetailFooter>
 
         <ScrollToTop></ScrollToTop>
-    </div>
+    </Layout>
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import StarVue from '@/assets/svgComponents/Star.vue';
 import ShareVue from '@/assets/svgComponents/Share.vue';
 import SearchVue from '@/assets/svgComponents/Search.vue';
@@ -287,6 +293,7 @@ import ToastModal from '@/components/global/ToastModal.vue';
 
 export default {
     components: {
+        Layout,
         StarVue,
         ShareVue,
         SearchVue,
@@ -300,14 +307,14 @@ export default {
     data() {
         return {
             productInfoShow: false,
-            modalState: 'hidden',
+            modalState: false,
             modalStyle: {},
         };
     },
 
     methods: {
         soloModalOpen() {
-            this.modalState = '';
+            this.modalState = true;
             this.modalStyle = {
                 fontColor: 'text-beBlack',
                 countBtn: 'bg-beBlack',
@@ -317,7 +324,7 @@ export default {
         },
 
         makeTeamModalOpen() {
-            this.modalState = '';
+            this.modalState = true;
             this.modalStyle = {
                 fontColor: 'text-beRed',
                 countBtn: 'bg-beRed',
@@ -327,7 +334,7 @@ export default {
         },
 
         participationTeamModalOpen() {
-            this.modalState = '';
+            this.modalState = true;
             this.modalStyle = {
                 fontColor: 'text-beRed',
                 countBtn: 'bg-beRed',
@@ -367,6 +374,12 @@ export default {
                 ],
             });
         },
+    },
+    beforeRouteLeave(to, from, next) {
+        if (this.modalState === true) {
+            next(false);
+            this.modalState = false;
+        } else next();
     },
 };
 </script>

@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="relative flex h-full min-h-screen w-full max-w-[428px] flex-col bg-white pt-[55px] pb-[48px] font-pretendard"
-    >
+    <Layout :flex="true" :header="true" :footer="true">
         <MypageHeader title="설정"></MypageHeader>
         <div class="flex w-full flex-col justify-start text-lg font-medium">
             <div
@@ -74,7 +72,7 @@
             </div>
             <div class="flex h-[60px] w-full items-center px-5">로그아웃</div>
         </div>
-    </div>
+    </Layout>
     <Modal :display="madalDisplay" @closeModal="madalDisplay = 'hidden'">
         <div class="flex w-full flex-col items-center justify-center">
             <div
@@ -97,6 +95,7 @@
 </template>
 
 <script>
+import Layout from '@/components/global/Layout.vue';
 import MypageHeader from '@/components/mypage/MypageHeader.vue';
 import Modal from '@/components/global/Modal.vue';
 import Rectangle from '@/assets/svgComponents/Rectangle.vue';
@@ -104,6 +103,7 @@ import Circle from '@/assets/svgComponents/Circle.vue';
 
 export default {
     components: {
+        Layout,
         MypageHeader,
         Modal,
         Rectangle,
@@ -115,6 +115,12 @@ export default {
             switchBtn1: false,
             switchBtn2: false,
         };
+    },
+    beforeRouteLeave(to, from, next) {
+        if (this.madalDisplay === null) {
+            this.madalDisplay = 'hidden';
+            next(false);
+        } else next();
     },
 };
 </script>
