@@ -33,6 +33,7 @@ import OrderPaymentViewVue from '@/views/etc/Order&PaymentView.vue';
 import PaymentMethodViewVue from '@/views/etc/PaymentMethodView.vue';
 import TeamOrderFinishViewVue from '@/views/etc/TeamOrderFinishView.vue';
 import SoloOrderFinishViewVue from '@/views/etc/SoloOrderFinishView.vue';
+import NotFoundVue from '@/views/etc/NotFound.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -208,7 +209,7 @@ const router = createRouter({
             name: '/solo-order-finish',
             component: SoloOrderFinishViewVue,
         },
-        { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
+        { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundVue },
     ],
     scrollBehavior(to, from, savedPosition) {},
 });
