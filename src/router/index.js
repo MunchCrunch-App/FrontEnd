@@ -159,13 +159,13 @@ const router = createRouter({
             component: SettingViewVue,
         },
         {
-            path: '/mypage/privacy',
-            name: '/mypage/privacy',
+            path: '/mypage/setting/privacy',
+            name: '/mypage/setting/privacy',
             component: PrivacyViewVue,
         },
         {
-            path: '/mypage/terms-of-use',
-            name: '/mypage/terms-of-use',
+            path: '/mypage/setting/terms-of-use',
+            name: '/mypage/setting/terms-of-use',
             component: TermsOfUseViewVue,
         },
         {
@@ -208,6 +208,7 @@ const router = createRouter({
             name: '/solo-order-finish',
             component: SoloOrderFinishViewVue,
         },
+        { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
     ],
     scrollBehavior(to, from, savedPosition) {},
 });

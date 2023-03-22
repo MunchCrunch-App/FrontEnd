@@ -30,7 +30,7 @@
                                 <div
                                     class="flex h-[40px] w-[50%] cursor-pointer items-center justify-center rounded-[20.5px] border-[1px] border-black"
                                     @click="
-                                        () => {
+                                        {
                                             modalDisplay = null;
                                             productId = product.id;
                                         }
@@ -65,10 +65,7 @@
             <div
                 class="flex w-full flex-col items-center justify-center text-base font-bold leading-[2.19] text-black"
             >
-                <div
-                    class="cursor-pointer"
-                    @click="$router.push(`/mypage/refund/${productId}`)"
-                >
+                <div class="cursor-pointer" @click="goRefundPage">
                     네, 진행할게요
                 </div>
                 <div class="cursor-pointer" @click="modalDisplay = 'hidden'">
@@ -107,6 +104,10 @@ export default {
             getMyPick().then((res) => {
                 this.productList = res.result;
             });
+        },
+        goRefundPage() {
+            this.modalDisplay = 'hidden';
+            this.$router.push(`/mypage/refund/${this.productId}`);
         },
     },
     created() {
