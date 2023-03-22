@@ -4,24 +4,22 @@
         <div class="flex w-full flex-col justify-start text-lg font-medium">
             <div
                 class="flex h-[60px] w-full cursor-pointer items-center border-b-[1px] border-beGray3 px-5"
-                @click="$router.push('/mypage/terms-of-use')"
+                @click="$router.push('/mypage/setting/terms-of-use')"
             >
                 서비스 이용약관
             </div>
             <div
                 class="flex h-[60px] w-full cursor-pointer items-center border-b-[1px] border-beGray3 px-5"
-                @click="$router.push('/mypage/privacy')"
+                @click="$router.push('/mypage/setting/privacy')"
             >
                 개인정보처리방침
             </div>
             <div
-                class="flex h-[60px] w-full items-center justify-between border-b-[1px] border-beGray3 px-5"
+                class="flex h-[60px] w-full cursor-pointer items-center justify-between border-b-[1px] border-beGray3 px-5"
+                @click="switchBtn1 = !switchBtn1"
             >
                 <div>앱 푸시 알림 허용</div>
-                <div
-                    class="relative h-5 w-[45px] cursor-pointer"
-                    @click="switchBtn1 = !switchBtn1"
-                >
+                <div class="relative h-5 w-[45px]">
                     <Circle
                         class="absolute left-0 z-10 transition-all"
                         :class="
@@ -38,13 +36,11 @@
                 </div>
             </div>
             <div
-                class="flex h-[60px] w-full items-center justify-between border-b-[1px] border-beGray3 px-5"
+                class="flex h-[60px] w-full cursor-pointer items-center justify-between border-b-[1px] border-beGray3 px-5"
+                @click="switchBtn2 = !switchBtn2"
             >
                 <div>마케팅, 광고성 정보알림 수신동의</div>
-                <div
-                    class="relative h-5 w-[45px] cursor-pointer"
-                    @click="switchBtn2 = !switchBtn2"
-                >
+                <div class="relative h-5 w-[45px]">
                     <Circle
                         class="absolute left-0 z-10 transition-all"
                         :class="

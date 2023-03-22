@@ -275,8 +275,6 @@
             @soloModalOpen="soloModalOpen"
             @teamModalOpen="makeTeamModalOpen"
         ></DetailFooter>
-
-        <ScrollToTop></ScrollToTop>
     </Layout>
 </template>
 
@@ -285,7 +283,6 @@ import Layout from '@/components/global/Layout.vue';
 import StarVue from '@/assets/svgComponents/Star.vue';
 import ShareVue from '@/assets/svgComponents/Share.vue';
 import SearchVue from '@/assets/svgComponents/Search.vue';
-import ScrollToTop from '@/components/global/ScrollToTop.vue';
 import HeartIcon from '@/assets/svgComponents/HeartIcon.vue';
 import ReviewContent from '@/components/global/ReviewContent.vue';
 import DetailFooter from '@/components/global/DetailFooter.vue';
@@ -297,7 +294,6 @@ export default {
         StarVue,
         ShareVue,
         SearchVue,
-        ScrollToTop,
         HeartIcon,
         ReviewContent,
         DetailFooter,
