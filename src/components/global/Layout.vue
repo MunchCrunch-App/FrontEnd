@@ -2,6 +2,7 @@
     <div
         class="relative h-screen w-full max-w-[428px] overflow-y-scroll bg-white scrollbar-hide"
         :class="isClass"
+        @scroll="onScroll"
     >
         <slot></slot>
     </div>
@@ -35,6 +36,11 @@ export default {
             if (this.footer) text = text.concat(' ', 'pb-[48px]');
             if (this.detailFooter) text = text.concat(' ', 'pb-[108px]');
             return text;
+        },
+    },
+    methods: {
+        onScroll(e) {
+            //console.log(e);
         },
     },
 };

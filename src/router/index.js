@@ -209,6 +209,7 @@ const router = createRouter({
             component: SoloOrderFinishViewVue,
         },
     ],
+    scrollBehavior(to, from, savedPosition) {},
 });
 
 export default router;
