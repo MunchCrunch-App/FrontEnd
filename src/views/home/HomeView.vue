@@ -134,7 +134,6 @@
         </swiper>
     </Layout>
     <Footer :FooterClickState="FooterClickState"></Footer>
-    <ScrollToTop></ScrollToTop>
 </template>
 
 <script>
@@ -150,7 +149,6 @@ import munchspick from '@/assets/munchcrunch-munchspick.webp';
 import leader from '@/assets/munchcrunch-button-leader.webp';
 import specialPrice from '@/assets/munchcrunch-special-price.webp';
 import team from '@/assets/munchcrunch-team.webp';
-import ScrollToTop from '@/components/global/ScrollToTop.vue';
 import LoadingIndicater from '@/components/global/LoadingIndicater.vue';
 import { mockApi } from '@/api/api';
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -166,7 +164,6 @@ export default {
         Footer,
         Swiper,
         SwiperSlide,
-        ScrollToTop,
         LoadingIndicater,
         LoadingIndicater,
     },
